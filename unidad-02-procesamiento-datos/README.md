@@ -1,38 +1,32 @@
 # Unidad 2: Procesamiento y representación de datos para IA
 
-Trabajaremos con arreglos, tablas y tensores para preparar datos, comprobar sus
-transformaciones y explorar sus características. Las notebooks servirán para
-experimentar y explicar resultados; los módulos y las aplicaciones permitirán
-repetir el procesamiento desde la terminal.
+Trabajaremos con arreglos, tablas, tensores y visualizaciones para preparar datos,
+comprobar sus transformaciones y explorar sus características. Las notebooks
+servirán para experimentar y explicar resultados; los proyectos con `uv`
+permitirán repetir el procesamiento desde la terminal.
 
 ## Contenido
 
-| Sesión | Tema | Contenido previsto | Estado |
-|---|---|---|---|
-| 1 | [Arreglos y representación con NumPy](./sesion-01-numpy/README.md) | `ndarray`, dimensiones, tipos, selección, vistas y copias. Dos proyectos ejecutables. | Disponible para revisión |
-| 2 | [Vectorización y broadcasting](./sesion-02-vectorizacion/README.md) | Operaciones elemento a elemento, agregaciones, reshape, broadcasting y operaciones matriciales. Comparación con una implementación con ciclos. | Por desarrollar |
-| 3 | [Manipulación y transformación con Pandas](./sesion-03-pandas/README.md) | Series, DataFrame, selección, filtros, orden, tipos y valores faltantes. | Por desarrollar |
-| 4 | [Integración y calidad de datasets](./sesion-04-integracion-datasets/README.md) | Merge, join, concatenación, claves, duplicados y reporte de calidad. | Por desarrollar |
-| 5 | [Almacenamiento e interoperabilidad tensorial](./sesion-05-almacenamiento-tensores/README.md) | CSV y Parquet; conversión NumPy–PyTorch, dimensiones, tipos y dispositivos. | Por desarrollar |
-| 6 | [Exploración y visualización](./sesion-06-visualizacion/README.md) | Histogramas, dispersión, líneas y categorías con Matplotlib; interpretación de resultados. | Por desarrollar |
+| Sesión | Tema | Trabajo principal |
+|---|---|---|
+| 1 | [NumPy y vectorización](./sesion-01-numpy/README.md) | Formas, tipos, selección, vistas, operaciones vectorizadas y broadcasting con mediciones. |
+| 2 | [pandas y paso a NumPy](./sesion-02-pandas/README.md) | Cargar, limpiar, agrupar y unir datos de Titanic; extraer una matriz numérica. |
+| 3 | [PyTorch y datasets](./sesion-03-pytorch/README.md) | Tensores, `Dataset`, `DataLoader` y exploración de CIFAR-10. Por desarrollar. |
+| 4 | [Visualización](./sesion-04-visualizacion/README.md) | Mostrar e interpretar lo trabajado con tablas y tensores. Por desarrollar. |
 
-La secuencia puede ajustarse conforme avancemos. Las carpetas se numeran por
-sesión dentro de la unidad; los prefijos de notebooks continúan como `u2_n1`,
-`u2_n2`, etc., sin reiniciarse en cada sesión.
+Las notebooks se numeran de forma continua dentro de la unidad: `u2_n1`,
+`u2_n2`, `u2_n3`, etc.
 
 ## Ejercicios
 
-La [sesión 1](./sesion-01-numpy/README.md) contiene ejercicios en dos notebooks,
-cada una dentro de su propio proyecto con `uv`, y una práctica integradora en
-`PRACTICA.md`. Su README explica el orden de trabajo, la ubicación de los archivos
-y los comandos para ejecutarlos.
-
-Las sesiones posteriores indicarán del mismo modo dónde se resuelven sus ejercicios
-conforme se incorporen sus materiales.
+La [sesión 1](./sesion-01-numpy/README.md) tiene ejercicios en las notebooks y
+una práctica de aplicación. La [sesión 2](./sesion-02-pandas/README.md) tiene
+ejercicios en su notebook y en `PRACTICA.md`. Cada README de sesión explica dónde
+resolverlos y cómo ejecutar sus materiales.
 
 ## Producto de la unidad
 
-Construiremos gradualmente un procesamiento reproducible que reúna limpieza,
-integración, almacenamiento, representación tensorial y visualización. En esta
-primera sesión la evidencia es más pequeña: seleccionar mediciones, explicar sus
-dimensiones y generar un resumen correcto sin modificar los datos originales.
+El trabajo avanza desde una matriz de mediciones hasta una tabla con etiquetas,
+una selección de variables numéricas y formas de examinar los datos. Los archivos
+generados en la sesión 2 permiten retomar la representación numérica en PyTorch y
+la tabla preparada en visualización.

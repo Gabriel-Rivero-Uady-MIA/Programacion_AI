@@ -55,6 +55,12 @@ variable base se conservan para que los experimentos no alteren los resultados
 posteriores. No basta con que una expresión se ejecute: justifica qué sala o ronda
 representa cada posición.
 
+Continúa con la conversión vectorizada de temperaturas y la comparación con una
+operación escrita para cada fila. Al restar las medias por sala, comprueba las
+formas `(8, 3)` y `(3,)`: NumPy aplica los tres valores a cada ronda.
+Completa los ejercicios 7 y 8 y añade una celda para el ejercicio 9 de
+[PRACTICA.md](./PRACTICA.md). En la notebook de reporte resolverás el 10 y el 11.
+
 ## 4. Pasar al proyecto de reporte
 
 Detén JupyterLab con Ctrl+C en la terminal y confirma su cierre si lo solicita.

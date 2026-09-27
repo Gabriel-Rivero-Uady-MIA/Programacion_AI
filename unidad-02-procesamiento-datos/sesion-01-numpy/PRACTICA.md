@@ -2,23 +2,35 @@
 
 ## Ejercicios durante la exploración
 
-La primera notebook contiene ocho ejercicios y esta práctica añade el ejercicio 9.
+La sesión contiene 11 ejercicios: los ejercicios 1–8 están en la notebook de
+exploración; el 9 se resuelve en una celda nueva de esa misma notebook. Los
+ejercicios 10 y 11 están en la notebook de reporte. Esta práctica detalla
+también la implementación del 11; es el mismo trabajo, no un ejercicio adicional.
 En cada uno, escribe primero el resultado o la forma esperada y luego comprueba tu
 propuesta con NumPy.
 
 | Ejercicio | Trabajo | Evidencia |
 |---|---|---|
-| 1 | Distinguir escalar, vector y matriz | `shape`, `ndim` y significado |
+| 1 | Distinguir un vector y una matriz de una fila | `shape`, `ndim` y significado |
 | 2 | Elegir un tipo para temperaturas decimales | Conversión que conserve `22.75` |
 | 3 | Seleccionar las últimas tres rondas y dos salas | Matriz de forma `(3, 2)` |
 | 4 | Conservar una columna como matriz | Forma `(8, 1)` |
 | 5 | Filtrar por intervalo de temperatura | Tres rondas de la sala sur |
 | 6 | Modificar una selección sin afectar el original | Comprobación de independencia |
-| 7 | Elegir el eje de un resumen | Tres máximos por sala y ocho medias por ronda |
+| 7 | Convertir temperaturas sin un ciclo explícito | Nueva matriz en Fahrenheit de forma `(8, 3)` |
 | 8 | Excluir filas con valores no finitos | Máscara y conteo de filas rechazadas |
-| 9 | Comparar `any(axis=1)` y `all(axis=1)` | Máscaras y explicación de la diferencia |
+| 9 | Comparar cada sala con su propia media | Matriz de diferencias con forma `(8, 3)` |
+| 10 | Interpretar dos reportes | Comparación de las filas usadas en cada cálculo |
+| 11 | Seleccionar rondas por umbral | Función reutilizable, pruebas y resultados |
 
-## Aplicación independiente
+## Ejercicio 9: diferencias respecto de la media
+
+Calcula la media de cada sala y réstala de `readings` sin escribir un ciclo por
+ronda. Comprueba que la matriz resultante conserva la forma `(8, 3)` y que la
+media de cada columna de diferencias es aproximadamente cero. Explica cómo se
+alinean las formas `(8, 3)` y `(3,)` y por qué no se resta la media general.
+
+## Ejercicio 11: aplicación independiente
 
 En `02-reporte-mediciones`, crea `measurements/selection.py` con una función
 `select_warm_rounds(readings, threshold)` que devuelva las filas donde la sala norte
@@ -51,8 +63,3 @@ incluido un umbral no finito, con `ValueError`.
 - La entrada no cambia por efectos de memoria compartida.
 - Las pruebas cubren resultados válidos y casos límite.
 - El proyecto se ejecuta con `uv sync --locked` y las notebooks desde un kernel limpio.
-
-## Ejercicio 9: al menos una sala
-
-Selecciona rondas donde al menos una sala alcance `30` °C utilizando `any(axis=1)`.
-Contrasta esa máscara con `all(axis=1)`. Explica por qué la pregunta cambia.

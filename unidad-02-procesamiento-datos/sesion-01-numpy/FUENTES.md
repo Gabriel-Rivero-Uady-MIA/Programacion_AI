@@ -8,6 +8,8 @@
 | Selección por posición y máscara | [Indexing](https://numpy.org/doc/stable/user/basics.indexing.html) |
 | Memoria compartida | [Copies and views](https://numpy.org/doc/stable/user/basics.copies.html) |
 | Promedios por eje | [numpy.mean](https://numpy.org/doc/stable/reference/generated/numpy.mean.html) |
+| Operaciones por elemento | [NumPy quickstart](https://numpy.org/doc/stable/user/quickstart.html) |
+| Formas compatibles | [Broadcasting](https://numpy.org/doc/stable/user/basics.broadcasting.html) |
 | Valores no finitos | [numpy.isfinite](https://numpy.org/doc/stable/reference/generated/numpy.isfinite.html) |
 | Condiciones por eje | [numpy.all](https://numpy.org/doc/stable/reference/generated/numpy.all.html) |
 | Lectura numérica | [numpy.loadtxt](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) |

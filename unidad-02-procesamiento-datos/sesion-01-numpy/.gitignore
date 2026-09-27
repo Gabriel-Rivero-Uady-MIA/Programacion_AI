@@ -1,3 +1,4 @@
 # Reproducible local outputs
 **/outputs/
 **/*.executed.ipynb
+.slides-build/
