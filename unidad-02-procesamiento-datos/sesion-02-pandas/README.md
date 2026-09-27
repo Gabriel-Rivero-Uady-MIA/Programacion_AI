@@ -1,0 +1,49 @@
+# Sesión 2: Tablas con pandas y paso a NumPy
+
+En la sesión anterior, cada columna del arreglo representaba una sala y todas
+contenían temperaturas. Titanic reúne números, texto y valores ausentes en una
+misma tabla. Usaremos pandas para conservar los nombres de las columnas mientras
+seleccionamos, limpiamos y agrupamos pasajeros. Al final extraeremos únicamente
+las columnas numéricas que necesitaremos como matriz en la siguiente sesión.
+
+## Recorrido
+
+1. Abre [u2_n3_pandas_titanic.ipynb](./u2_n3_pandas_titanic.ipynb) desde esta carpeta.
+2. Examina columnas, tipos, ausentes y filas repetidas.
+3. Filtra, agrupa y crea una variable nueva sin perder las etiquetas.
+4. Comprueba un `merge` sencillo y transforma las columnas numéricas a NumPy.
+5. Ejecuta [main.py](./main.py) para generar los mismos datos preparados desde la terminal.
+
+Los **ejercicios 1–4** se resuelven en la notebook. La
+[práctica](./PRACTICA.md) contiene el ejercicio 5, que amplía el módulo y su
+reporte. Las soluciones de referencia se conservan fuera del repositorio.
+
+## Ejecutar
+
+Desde esta carpeta:
+
+```bash
+uv sync --locked
+uv run --locked jupyter lab
+```
+
+La notebook utiliza [Titanic-Dataset.csv](../../datasets/Titanic-Dataset.csv),
+incluido en el repositorio. No requiere cuenta de Kaggle ni descarga durante la
+clase. Para generar los archivos de salida:
+
+```bash
+uv run --locked python main.py
+uv run --locked python -m pytest
+uv run --locked ruff check .
+```
+
+La aplicación escribe `passengers_prepared.csv`, `survival_by_group.csv`,
+`features.npy` y `labels.npy` en `outputs/`. Los CSV mantienen nombres de columnas
+y grupos; los archivos NumPy contienen una matriz numérica `(891, 4)` y un vector
+de etiquetas `(891,)`. Son materiales para estudiar representación de datos, no
+un conjunto de entrenamiento preparado para evaluar modelos.
+
+La tabla de [fuentes](./FUENTES.md) reúne la documentación oficial usada en esta
+sesión.
+
+[Volver al contenido de la unidad](../README.md)
