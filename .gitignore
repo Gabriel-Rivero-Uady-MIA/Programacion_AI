@@ -52,6 +52,7 @@ Desktop.ini
 # Local presentation sources and PDF exports (distributed through Google Drive)
 *.pptx
 u[0-9]*_p[0-9]*_*.pdf
+.slides-validation/
 
 # Local institutional planning document
 PlaneacionDidactica_ProgramacionIA_Oscar.docx
