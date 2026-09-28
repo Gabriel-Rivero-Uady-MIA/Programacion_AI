@@ -16,8 +16,8 @@ entender los datos que recibe una aplicación de aprendizaje automático.
 
 Los **ejercicios 1–4** están en
 [u2_n4_tensores_datasets.ipynb](./u2_n4_tensores_datasets.ipynb).
-El [ejercicio 5](./PRACTICA.md) amplía el resumen del proyecto. Las soluciones de
-referencia se conservan localmente, fuera del repositorio.
+El [ejercicio 5](./PRACTICA.md) amplía el resumen del proyecto. Consulta los entregables en
+[PRACTICA.md](./PRACTICA.md).
 
 ## Preparación
 

@@ -13,6 +13,8 @@ introduce los conceptos que después se prueban en la
 
 La notebook contiene cuatro ejercicios para el estudiante: uno sobre
 generadores, uno sobre cierre de archivos y dos sobre concurrencia.
+Consulta los [entregables en PRACTICA.md](./PRACTICA.md).
+
 Los ejemplos se ejecutan con la biblioteca estándar y crean archivos solo en
 directorios temporales.
 
@@ -25,3 +27,5 @@ en una celda. En un archivo `.py`, el punto de entrada habitual sería
 `asyncio.run(main())`.
 
 Las [fuentes oficiales](./FUENTES.md) permiten ampliar cualquiera de los temas.
+También recomendamos la [guía de concurrencia y async/await](https://fastapi.tiangolo.com/async/),
+comenzando por «In a hurry?».

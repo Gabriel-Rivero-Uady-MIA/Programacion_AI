@@ -18,10 +18,10 @@ de Python. Los proyectos administran sus dependencias de manera independiente.
 
 ## Ejercicios
 
-Cada README de sesión indica los ejercicios disponibles y el archivo donde deben
-resolverse. Según la actividad, se encuentran en una notebook o en archivos como
-`PRACTICA.md` y `CALIDAD.md`. Los enlaces para abrir notebooks en Google Colab
-también se encuentran en el README de la sesión correspondiente.
+Cada sesión tiene un `PRACTICA.md` con la cantidad de ejercicios, dónde
+resolverlos y los entregables. Los enunciados están en las notebooks o en
+`PRACTICA.md` y `CALIDAD.md`, según la actividad. Los enlaces para abrir notebooks
+en Google Colab también se encuentran en el README de la sesión correspondiente.
 
 ## Presentaciones de la unidad 1
 

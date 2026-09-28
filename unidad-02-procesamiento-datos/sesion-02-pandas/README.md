@@ -16,7 +16,7 @@ las columnas numéricas que necesitaremos como matriz en la siguiente sesión.
 
 Los **ejercicios 1–4** se resuelven en la notebook. La
 [práctica](./PRACTICA.md) contiene el ejercicio 5, que amplía el módulo y su
-reporte. Las soluciones de referencia se conservan fuera del repositorio.
+reporte. Consulta los entregables en [PRACTICA.md](./PRACTICA.md).
 
 ## Ejecutar
 

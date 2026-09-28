@@ -1,6 +1,7 @@
 # Práctica: un catálogo reproducible con MCP
 
-Trabaja sobre el proyecto que construiste en [GUIA.md](./GUIA.md).
+Resuelve **9 ejercicios** sobre el proyecto construido con [GUIA.md](./GUIA.md):
+los cinco siguientes y los cuatro de [CALIDAD.md](./CALIDAD.md).
 
 ## Ejercicio 1 · Punto de entrada
 
@@ -35,6 +36,12 @@ Desde una copia limpia, ejecuta `uv sync --locked` y `client.py` con `python`,
 distingue respuesta vacía de error. Explica qué aportan `pyproject.toml`,
 `uv.lock` y `.python-version` y por qué no se entrega `.venv`.
 
-Entrega código, datos pequeños y un README con comandos de ejecución y resultados
-esperados. Incluye la evidencia de las llamadas y tus explicaciones. Los logs,
-el entorno y las salidas generadas deben quedar fuera de Git.
+## Entregables
+
+- El proyecto con código, datos pequeños, pruebas, `pyproject.toml`, `uv.lock`,
+  `.python-version` y `Makefile`.
+- Un README con comandos, resultados de las llamadas y explicaciones de los
+  ejercicios, incluida la evidencia de las comprobaciones de calidad.
+
+Comprueba la ejecución desde una copia limpia. Entrega el proyecto sin `.venv`,
+cachés ni logs.

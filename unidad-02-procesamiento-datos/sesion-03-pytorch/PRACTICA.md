@@ -1,27 +1,30 @@
-# Práctica: proporciones por clase
+# Práctica: tensores y datasets
 
-## Ejercicio 5
+Resuelve **5 ejercicios**: el 1–4 en [la notebook](./u2_n4_tensores_datasets.ipynb)
+y el 5 en el proyecto, según las instrucciones siguientes.
 
-Amplía `label_summary` en `data_lab/inspection.py` para incluir una columna
-`proportion` con la fracción de muestras de cada clase. Usa como denominador la
-cantidad de etiquetas recibidas, que puede cambiar con `--limit`.
+## Ejercicio 5: proporciones por clase
 
-1. Conserva `class_id`, `class_name` y `count`. Incluye las clases con conteo cero.
-2. Actualiza la anotación del retorno para admitir también valores `float`.
-3. Añade una prueba con etiquetas `[0, 0, 2, 2, 2]` y nombres de clase
-   `["class_a", "class_b", "class_c"]`. Comprueba conteos `[2, 0, 3]`,
-   proporciones `[0.4, 0.0, 0.6]` y suma aproximadamente igual a uno.
-4. Ejecuta `main.py --limit 10 --batch-size 4` mediante `uv run --locked python`
-   y comprueba que `class_counts.csv` incluya la columna nueva. `main.py` obtiene
-   los encabezados del resumen, por lo que no hace falta duplicar allí el cálculo.
-5. Explica por qué cambiar `batch_size` no debería alterar estos conteos, mientras
-   que cambiar `limit` puede hacerlo. Conserva `shuffle=False` y `drop_last=False`.
+Amplía `label_summary` en `data_lab/inspection.py` con `proportion`: la fracción
+de cada clase respecto de todas las etiquetas recibidas. Conserva `class_id`,
+`class_name`, `count` y las clases con conteo cero. Actualiza el tipo de retorno
+para admitir valores `float`.
 
-## Entrega
+Añade una prueba con etiquetas `[0, 0, 2, 2, 2]` y clases
+`["class_a", "class_b", "class_c"]`: conteos `[2, 0, 3]`, proporciones
+`[0.4, 0.0, 0.6]` y suma aproximadamente uno.
 
-- Notebook con los ejercicios 1–4 resueltos y sus interpretaciones.
-- Función modificada y prueba del ejercicio 5.
-- CSV generado y una explicación breve del denominador utilizado.
+Ejecuta `uv run --locked python main.py --limit 10 --batch-size 4` y comprueba
+la columna nueva en `class_counts.csv`. Conserva `shuffle=False` y
+`drop_last=False`. Explica por qué cambiar el tamaño de lote conserva los
+conteos y cambiar `limit` puede alterarlos.
 
-Reinicia el kernel y ejecuta toda la notebook. Ejecuta también las pruebas y
-comprobaciones indicadas en el README.
+## Entregables
+
+- Una copia de la notebook con los ejercicios 1–4 resueltos y sus explicaciones.
+- El proyecto con la función modificada y su prueba.
+- `class_counts.csv` y la explicación del denominador y los conteos, que puede ir
+  en la notebook.
+
+Ejecuta toda la notebook desde un kernel limpio y las comprobaciones del README.
+Entrega el proyecto sin `.venv`, cachés ni la descarga de CIFAR-10; adjunta el CSV.

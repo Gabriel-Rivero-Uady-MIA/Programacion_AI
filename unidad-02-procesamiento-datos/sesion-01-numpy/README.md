@@ -53,6 +53,8 @@ el mismo ejercicio 11 del proyecto. Los ejercicios se
 resuelven en las celdas reservadas o en un módulo nuevo, sin sustituir el código
 necesario para continuar la sesión.
 
+Consulta los [entregables en PRACTICA.md](./PRACTICA.md).
+
 La primera notebook introduce y combina los conceptos; la segunda muestra cómo
 reutilizar la selección y los resúmenes en una aplicación. Esta sesión se centra
 en operaciones por elemento y por eje; los productos matriciales no son necesarios

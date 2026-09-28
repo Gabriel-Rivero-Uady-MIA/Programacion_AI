@@ -46,9 +46,8 @@ formal de proyectos con uv, Ruff y pytest queda para la sesión 4.
 
 ## Entrega y fuentes
 
-Entrega tu copia del módulo con la función de conteos del ejercicio 8, sus
-comprobaciones y un reporte JSON reconstruible. Los criterios de revisión están
-en la notebook.
+La sesión contiene **8 ejercicios**. Consulta los
+[entregables en PRACTICA.md](./PRACTICA.md).
 
 API contrastada con documentación oficial de [Pydantic](https://docs.pydantic.dev/latest/concepts/models/),
 [mypy](https://mypy.readthedocs.io/en/stable/getting_started.html) y

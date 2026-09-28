@@ -1,24 +1,25 @@
-# Práctica: comprobar un grupo adicional
+# Práctica: tablas con pandas
 
-## Ejercicio 5
+Resuelve **5 ejercicios**: el 1–4 en [la notebook](./u2_n3_pandas_titanic.ipynb)
+y el 5 en el proyecto, según las instrucciones siguientes.
 
-En `titanic/analysis.py`, añade una función `missing_age_by_class(prepared)` que
-devuelva una tabla con una fila por `Pclass` y dos columnas adicionales:
-`passengers` (cantidad de pasajeros) y `missing_age_rate` (proporción de edades
-ausentes). Reutiliza la columna `age_missing` generada por `prepare_passengers`.
+## Ejercicio 5: edades ausentes por clase
 
-Llama la función desde `main.py` y guarda la tabla como
-`outputs/missing_age_by_class.csv`. Comprueba que el total de pasajeros agrupados
-es 891 y que la proporción de cada clase se encuentra entre cero y uno. Añade
-una prueba pequeña con datos construidos por ti para comprobar las proporciones,
-sin depender únicamente del CSV completo. Usa `dropna=False` al agrupar, como
-en la notebook, para conservar pasajeros cuya clase pudiera estar ausente.
+En `titanic/analysis.py`, añade `missing_age_by_class(prepared)`: una fila por
+`Pclass`, con `passengers` y `missing_age_rate`. Reutiliza `age_missing` y agrupa
+con `dropna=False`.
 
-Explica en dos o tres frases por qué una proporción por clase informa algo que
-el conteo total de 177 edades ausentes no muestra. No interpretes la asociación
-como una causa.
+Llama la función desde `main.py` y guarda `outputs/missing_age_by_class.csv`.
+Comprueba que los conteos sumen 891 y las proporciones estén entre cero y uno.
+Añade una prueba con datos pequeños construidos por ti. Explica en dos o tres
+frases qué aporta la proporción por clase frente al total de 177 edades ausentes,
+sin interpretar la asociación como una causa.
 
-## Entrega
+## Entregables
 
-- Notebook con los ejercicios 1–4 y sus resultados interpretados.
-- Función, llamada desde la aplicación, archivo de salida y prueba del ejercicio 5.
+- Una copia de la notebook con los ejercicios 1–4 resueltos y sus explicaciones.
+- El proyecto con la función, su llamada y la prueba del ejercicio 5.
+- `missing_age_by_class.csv` y la explicación solicitada, que puede ir en la notebook.
+
+Ejecuta toda la notebook desde un kernel limpio y las comprobaciones del README.
+Entrega el proyecto sin `.venv` ni cachés; adjunta el CSV como evidencia.

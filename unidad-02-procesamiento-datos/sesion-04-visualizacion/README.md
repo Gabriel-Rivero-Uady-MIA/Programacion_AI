@@ -7,9 +7,9 @@ porcentajes y una cuadrícula de imágenes.
 ## Material y ejercicios
 
 La [notebook u2_n5_visualizacion](./u2_n5_visualizacion.ipynb) introduce los ejemplos
- y contiene **dos ejercicios**: ajustar los intervalos de un histograma y comparar
-el porcentaje de edades ausentes por clase. Entrega la notebook ejecutada y las
-interpretaciones solicitadas. `main.py` exporta los tres gráficos de ejemplo.
+y contiene **dos ejercicios**: ajustar los intervalos de un histograma y comparar
+el porcentaje de edades ausentes por clase. Consulta los
+[entregables en PRACTICA.md](./PRACTICA.md). `main.py` exporta los tres gráficos de ejemplo.
 
 ## Preparación
 

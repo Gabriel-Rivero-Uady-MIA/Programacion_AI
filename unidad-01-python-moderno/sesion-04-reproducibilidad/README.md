@@ -14,9 +14,9 @@ módulos, dependencias, logging y reproducción del entorno.
 
 La [guía](./GUIA.md) construye el ejemplo por etapas. El
 [proyecto de referencia](./project/README.md) contiene la implementación completa.
-Los **cinco ejercicios** están en [PRACTICA.md](./PRACTICA.md).
-[CALIDAD.md](./CALIDAD.md) conserva el bloque final de pytest, Ruff, mypy y
-Makefile, con cuatro ejercicios sobre esta misma aplicación.
+La sesión reúne **9 ejercicios**: cinco de la aplicación y cuatro de calidad
+con pytest, Ruff, mypy y Makefile. [PRACTICA.md](./PRACTICA.md) reúne los
+entregables y enlaza el bloque de [CALIDAD.md](./CALIDAD.md).
 
 ## Ejecutar la referencia
 

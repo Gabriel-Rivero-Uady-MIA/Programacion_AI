@@ -38,6 +38,11 @@ del código están en inglés.
 - POO: clases, instancias, atributos, métodos y estado independiente.
 - Caso integrador: conservar predicciones y resumir un lote.
 
+## Práctica y entrega
+
+La sesión reúne **12 ejercicios** entre ambas notebooks. Consulta los
+[entregables en PRACTICA.md](./PRACTICA.md).
+
 ## Dinámica del taller
 
 La primera notebook incluye 11 ejercicios con la secuencia **predecir, ejecutar,
