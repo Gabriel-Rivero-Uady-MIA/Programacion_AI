@@ -4,6 +4,11 @@ Convertiremos las matrices de Titanic a tensores y después exploraremos imágen
 de CIFAR-10. Trabajaremos con muestras, etiquetas, transformaciones y lotes para
 entender los datos que recibe una aplicación de aprendizaje automático.
 
+## Entrega de prácticas
+
+La fecha límite para entregar las prácticas de la Unidad 2 es el **13 de octubre de 2026**.
+Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLScOPQOB1sgjXsZbrealNcJ_U8Aa-bqtds5SozcSsRNSek7FxA/viewform?usp=publish-editor).
+
 ## Contenido
 
 | Orden | Tema | Material |

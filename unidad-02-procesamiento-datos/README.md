@@ -5,6 +5,11 @@ comprobar sus transformaciones y explorar sus características. Las notebooks
 servirán para experimentar y explicar resultados; los proyectos con `uv`
 permitirán repetir el procesamiento desde la terminal.
 
+## Entrega de prácticas
+
+La fecha límite para entregar las prácticas de la Unidad 2 es el **13 de octubre de 2026**.
+Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLScOPQOB1sgjXsZbrealNcJ_U8Aa-bqtds5SozcSsRNSek7FxA/viewform?usp=publish-editor).
+
 ## Contenido
 
 | Sesión | Tema | Trabajo principal |

@@ -23,6 +23,21 @@ resolverlos y los entregables. Los enunciados están en las notebooks o en
 `PRACTICA.md` y `CALIDAD.md`, según la actividad. Los enlaces para abrir notebooks
 en Google Colab también se encuentran en el README de la sesión correspondiente.
 
+| Unidad | Sesión | Ejercicios | Práctica y entregables |
+|---|---|---|---|
+| 1 | 1. Curso acelerado y Zen de Python | 12 | [PRACTICA.md](./unidad-01-python-moderno/sesion-01-curso-acelerado-python/PRACTICA.md) |
+| 1 | 2. Tipado y Pydantic | 8 | [PRACTICA.md](./unidad-01-python-moderno/sesion-02-tipado-pydantic/PRACTICA.md) |
+| 1 | 3. Iteración, recursos y concurrencia | 4 | [PRACTICA.md](./unidad-01-python-moderno/sesion-03-iteracion-recursos-concurrencia/PRACTICA.md) |
+| 1 | 4. Organización, reproducibilidad y MCP local | 9 | [PRACTICA.md](./unidad-01-python-moderno/sesion-04-reproducibilidad/PRACTICA.md) |
+| 2 | 1. NumPy y vectorización | 11 | [PRACTICA.md](./unidad-02-procesamiento-datos/sesion-01-numpy/PRACTICA.md) |
+| 2 | 2. Tablas con pandas | 5 | [PRACTICA.md](./unidad-02-procesamiento-datos/sesion-02-pandas/PRACTICA.md) |
+| 2 | 3. Tensores y datasets con PyTorch | 5 | [PRACTICA.md](./unidad-02-procesamiento-datos/sesion-03-pytorch/PRACTICA.md) |
+| 2 | 4. Visualización de datos | 2 | [PRACTICA.md](./unidad-02-procesamiento-datos/sesion-04-visualizacion/PRACTICA.md) |
+
+En las sesiones con notebooks, entrega una copia con los ejercicios resueltos,
+resultados y explicaciones. Cuando la práctica incluye un proyecto, entrega
+también el código y los archivos indicados en su `PRACTICA.md`.
+
 ## Presentaciones de la unidad 1
 
 1. [Introducción a Programación para Inteligencia Artificial (PDF)](https://drive.google.com/file/d/1Ls0122l-Fyyb7-adEzKu6HVJqUk8rHun/view?usp=sharing)

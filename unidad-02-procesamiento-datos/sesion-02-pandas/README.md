@@ -6,6 +6,11 @@ misma tabla. Usaremos pandas para conservar los nombres de las columnas mientras
 seleccionamos, limpiamos y agrupamos pasajeros. Al final extraeremos únicamente
 las columnas numéricas que necesitaremos como matriz en la siguiente sesión.
 
+## Entrega de prácticas
+
+La fecha límite para entregar las prácticas de la Unidad 2 es el **13 de octubre de 2026**.
+Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLScOPQOB1sgjXsZbrealNcJ_U8Aa-bqtds5SozcSsRNSek7FxA/viewform?usp=publish-editor).
+
 ## Recorrido
 
 1. Abre [u2_n3_pandas_titanic.ipynb](./u2_n3_pandas_titanic.ipynb) desde esta carpeta.

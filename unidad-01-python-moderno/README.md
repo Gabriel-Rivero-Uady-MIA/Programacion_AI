@@ -3,6 +3,11 @@
 Esta unidad establece una base común de Python y presenta prácticas modernas
 para construir software de inteligencia artificial legible y reproducible.
 
+## Entrega de prácticas
+
+La fecha límite para entregar las prácticas de la Unidad 1 es el **7 de octubre de 2026**.
+Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLSdTJ2vU04VfIpw1Tst_T_0g0tlbE-n6ZI81nrG0RQJMReAtaQ/viewform?usp=publish-editor).
+
 ## Sesiones
 
 | Sesión | Tema | Ejercicios |

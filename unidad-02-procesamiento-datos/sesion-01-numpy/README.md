@@ -4,6 +4,11 @@ Una lista puede guardar mediciones; un arreglo permite expresar su organización
 y operar sobre grupos de valores. Trabajaremos con temperaturas de tres salas
 para construir selecciones correctas y llevar el análisis a una aplicación.
 
+## Entrega de prácticas
+
+La fecha límite para entregar las prácticas de la Unidad 2 es el **13 de octubre de 2026**.
+Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLScOPQOB1sgjXsZbrealNcJ_U8Aa-bqtds5SozcSsRNSek7FxA/viewform?usp=publish-editor).
+
 ## Objetivos
 
 - Interpretar `ndim`, `shape`, `size` y `dtype` a partir del significado de los datos.

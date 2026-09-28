@@ -7,6 +7,11 @@ Material de la sesión sobre anotaciones de tipo y validación de datos.
 - [Módulo reutilizable](./lesson_models.py).
 - [Comprobaciones de contratos](./check_contracts.py).
 
+## Entrega de prácticas
+
+La fecha límite para entregar las prácticas de la Unidad 1 es el **7 de octubre de 2026**.
+Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLSdTJ2vU04VfIpw1Tst_T_0g0tlbE-n6ZI81nrG0RQJMReAtaQ/viewform?usp=publish-editor).
+
 ## Recorrido
 
 1. Anotaciones, colecciones, valores opcionales y lectura de errores de mypy.

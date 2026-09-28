@@ -4,6 +4,11 @@ Una sesión breve para representar los resultados de Titanic y las imágenes de
 CIFAR-10 con Matplotlib. Trabajaremos con un histograma, una comparación de
 porcentajes y una cuadrícula de imágenes.
 
+## Entrega de prácticas
+
+La fecha límite para entregar las prácticas de la Unidad 2 es el **13 de octubre de 2026**.
+Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLScOPQOB1sgjXsZbrealNcJ_U8Aa-bqtds5SozcSsRNSek7FxA/viewform?usp=publish-editor).
+
 ## Material y ejercicios
 
 La [notebook u2_n5_visualizacion](./u2_n5_visualizacion.ipynb) introduce los ejemplos
