@@ -8,7 +8,8 @@ introduce los conceptos que después se prueban en la
 
 1. Generadores y consumo bajo demanda.
 2. Uso de `with`, una introducción breve a decoradores y `@contextmanager`.
-3. Corrutinas, tareas concurrentes y tiempos límite con `asyncio`.
+3. Funciones síncronas y corrutinas, `to_thread`, `create_task`, `gather`,
+   `TaskGroup` y tiempos límite con `asyncio`.
 
 La notebook contiene cuatro ejercicios para el estudiante: uno sobre
 generadores, uno sobre cierre de archivos y dos sobre concurrencia.
