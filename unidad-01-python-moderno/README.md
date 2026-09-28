@@ -10,7 +10,7 @@ para construir software de inteligencia artificial legible y reproducible.
 | 1 | [Curso acelerado y Zen de Python](./sesion-01-curso-acelerado-python/README.md) | En las dos notebooks de la sesión. |
 | 2 | [Tipado, Pydantic y modelos de datos](./sesion-02-tipado-pydantic/README.md) | En la notebook y en el módulo reutilizable de la sesión. |
 | 3 | [Iteración, recursos y concurrencia](./sesion-03-iteracion-recursos-concurrencia/README.md) | En la notebook de la sesión. |
-| 4 | [Organización y reproducibilidad](./sesion-04-reproducibilidad/README.md) | En `PRACTICA.md` y `CALIDAD.md`, dentro de la sesión. |
+| 4 | [Organización, reproducibilidad y MCP local](./sesion-04-reproducibilidad/README.md) | En `PRACTICA.md` y `CALIDAD.md`, dentro de la sesión. |
 
 Los README de sesión describen el orden de trabajo, los comandos necesarios y la
 ubicación exacta de cada actividad. También contienen los enlaces a Google Colab
