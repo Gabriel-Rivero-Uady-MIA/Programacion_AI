@@ -1,5 +1,7 @@
 # Sesión 4: Visualización de datos
 
+[Presentación de la sesión (PDF)](https://drive.google.com/file/d/19PdTA8ILRMk53OZG0Cddl8fo4GeTniYx/view?usp=drivesdk).
+
 Una sesión breve para representar los resultados de Titanic y las imágenes de
 CIFAR-10 con Matplotlib. Trabajaremos con un histograma, una comparación de
 porcentajes y una cuadrícula de imágenes.

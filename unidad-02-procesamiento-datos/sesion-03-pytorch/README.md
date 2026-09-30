@@ -1,5 +1,7 @@
 # Sesión 3: Tensores y datasets con PyTorch
 
+[Presentación de la sesión (PDF)](https://drive.google.com/file/d/19Jbf46jSTM2edUpSugP48twTpEXfJVj4/view?usp=drivesdk).
+
 Convertiremos las matrices de Titanic a tensores y después exploraremos imágenes
 de CIFAR-10. Trabajaremos con muestras, etiquetas, transformaciones y lotes para
 entender los datos que recibe una aplicación de aprendizaje automático.

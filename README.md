@@ -44,3 +44,10 @@ también el código y los archivos indicados en su `PRACTICA.md`.
 2. [PEP, anotaciones de tipo y Pydantic (PDF)](https://drive.google.com/file/d/1_2Bp0DOJYRTTAVd6tD1gruzsVrnT5Bru/view?usp=drivesdk)
 3. [Iteración, recursos y concurrencia (PDF)](https://drive.google.com/file/d/1gMZ1HGejLwIAsZf80W7OjOz9Ktkw5Arz/view?usp=drivesdk)
 4. [Organización y reproducibilidad de proyectos con uv (PDF)](https://drive.google.com/file/d/1L7z6CxmTSq6CT-fPHlxq593WCAa2HRcI/view?usp=drivesdk)
+
+## Presentaciones de la unidad 2
+
+1. [NumPy y vectorización (PDF)](https://drive.google.com/file/d/1nd5-nHeYSDUZgLEwXG9WLvCaIF-c_oPl/view?usp=drivesdk)
+2. [Tablas con pandas y Titanic (PDF)](https://drive.google.com/file/d/1fgePaMIGZf_aMCW_2T3xgsepiQbHjG82/view?usp=drivesdk)
+3. [Tensores y datasets con PyTorch (PDF)](https://drive.google.com/file/d/19Jbf46jSTM2edUpSugP48twTpEXfJVj4/view?usp=drivesdk)
+4. [Visualización de datos (PDF)](https://drive.google.com/file/d/19PdTA8ILRMk53OZG0Cddl8fo4GeTniYx/view?usp=drivesdk)

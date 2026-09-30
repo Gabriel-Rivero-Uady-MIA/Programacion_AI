@@ -1,5 +1,7 @@
 # Sesión 2: Tablas con pandas y paso a NumPy
 
+[Presentación de la sesión (PDF)](https://drive.google.com/file/d/1fgePaMIGZf_aMCW_2T3xgsepiQbHjG82/view?usp=drivesdk).
+
 En la sesión anterior, cada columna del arreglo representaba una sala y todas
 contenían temperaturas. Titanic reúne números, texto y valores ausentes en una
 misma tabla. Usaremos pandas para conservar los nombres de las columnas mientras

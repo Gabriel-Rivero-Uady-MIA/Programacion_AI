@@ -1,5 +1,7 @@
 # Sesión 1: NumPy y vectorización
 
+[Presentación de la sesión (PDF)](https://drive.google.com/file/d/1nd5-nHeYSDUZgLEwXG9WLvCaIF-c_oPl/view?usp=drivesdk).
+
 Una lista puede guardar mediciones; un arreglo permite expresar su organización
 y operar sobre grupos de valores. Trabajaremos con temperaturas de tres salas
 para construir selecciones correctas y llevar el análisis a una aplicación.
