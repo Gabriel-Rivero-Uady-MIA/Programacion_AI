@@ -52,8 +52,8 @@ En ejecuciones posteriores puedes omitir `--download`; la notebook utiliza
 los archivos locales y no intenta descargarlos.
 
 Abre [u2_n4_tensores_datasets.ipynb](./u2_n4_tensores_datasets.ipynb) en VS Code
-con el kernel de este proyecto. Selecciona el intérprete de su carpeta `.venv`;
-consulta la [configuración del editor](../README.md#notebooks-en-vs-code).
+o PyCharm con el entorno `.venv` de este proyecto; consulta las
+[opciones de editor](../README.md#notebooks-locales).
 
 ## Proyecto
 

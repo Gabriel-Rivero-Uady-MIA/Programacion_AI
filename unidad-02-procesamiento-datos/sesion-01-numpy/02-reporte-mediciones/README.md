@@ -12,9 +12,9 @@ uv sync --locked
 uv run --locked python main.py
 ```
 
-Abre [u2_n2_reporte_mediciones.ipynb](./u2_n2_reporte_mediciones.ipynb) en VS Code y
-selecciona el kernel de `.venv` después de sincronizar el proyecto. Consulta la
-[configuración del editor](../../README.md#notebooks-en-vs-code).
+Abre [u2_n2_reporte_mediciones.ipynb](./u2_n2_reporte_mediciones.ipynb) en VS Code
+o PyCharm y selecciona el entorno `.venv` después de sincronizar el proyecto.
+Consulta las [opciones de editor](../../README.md#notebooks-locales).
 
 Conserva la carpeta `../datos/` incluida en la sesión. El script resuelve su ruta
 a partir de `main.py`; la notebook parte de la carpeta de este proyecto.

@@ -15,7 +15,7 @@ Envía los entregables mediante el [formulario de entrega](https://docs.google.c
 
 ## Recorrido
 
-1. Abre [u2_n3_pandas_titanic.ipynb](./u2_n3_pandas_titanic.ipynb) en VS Code con el kernel de este proyecto.
+1. Abre [u2_n3_pandas_titanic.ipynb](./u2_n3_pandas_titanic.ipynb) en VS Code o PyCharm con el entorno de este proyecto.
 2. Examina columnas, tipos, ausentes y filas repetidas.
 3. Filtra, agrupa y crea una variable nueva sin perder las etiquetas.
 4. Comprueba un `merge` sencillo y transforma las columnas numéricas a NumPy.
@@ -33,8 +33,8 @@ Desde esta carpeta:
 uv sync --locked
 ```
 
-Consulta la [configuración de VS Code](../README.md#notebooks-en-vs-code) para
-seleccionar el kernel de `.venv`.
+Consulta las [opciones de editor](../README.md#notebooks-locales) para
+seleccionar el entorno `.venv`.
 
 La notebook utiliza [Titanic-Dataset.csv](../../datasets/Titanic-Dataset.csv),
 incluido en el repositorio. No requiere cuenta de Kaggle ni descarga durante la

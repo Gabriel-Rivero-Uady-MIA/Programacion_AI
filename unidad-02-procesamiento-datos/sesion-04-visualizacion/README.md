@@ -30,9 +30,9 @@ Desde esta carpeta:
 uv sync --locked
 ```
 
-Abre [u2_n5_visualizacion.ipynb](./u2_n5_visualizacion.ipynb) en VS Code con el
-kernel de este proyecto; consulta la
-[configuración del editor](../README.md#notebooks-en-vs-code).
+Abre [u2_n5_visualizacion.ipynb](./u2_n5_visualizacion.ipynb) en VS Code o
+PyCharm con el entorno `.venv` de este proyecto; consulta las
+[opciones de editor](../README.md#notebooks-locales).
 Aquí usamos los archivos NumPy
 ya exportados, por lo que no hace falta instalar PyTorch otra vez.
 

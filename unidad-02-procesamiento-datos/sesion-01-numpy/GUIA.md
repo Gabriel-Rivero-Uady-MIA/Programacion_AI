@@ -11,7 +11,8 @@ uv run --locked python main.py
 ```
 
 Abre [u2_n1_arreglos_numpy.ipynb](./01-exploracion/u2_n1_arreglos_numpy.ipynb)
-en VS Code. El kernel ejecuta Python y mantiene las variables de las celdas;
+en VS Code o PyCharm, según las [opciones de editor](../README.md#notebooks-locales).
+El kernel ejecuta Python y mantiene las variables de las celdas;
 reiniciarlo borra ese estado.
 
 En VS Code, abre la carpeta del proyecto, ejecuta `uv sync --locked` en su terminal

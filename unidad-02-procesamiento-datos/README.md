@@ -22,22 +22,35 @@ Envía los entregables mediante el [formulario de entrega](https://docs.google.c
 Las notebooks se numeran de forma continua dentro de la unidad: `u2_n1`,
 `u2_n2`, `u2_n3`, etc.
 
-## Notebooks en VS Code
+## Notebooks locales
 
-Instala las extensiones **Python** y **Jupyter** de VS Code. Desde la carpeta del
-proyecto de cada sesión, ejecuta `uv sync --locked` en la terminal integrada y
-abre la notebook mediante el enlace de su README. En la esquina superior derecha,
-elige **Select Kernel → Python Environments → `.venv`**. Si `.venv` no aparece,
-usa **Select Another Kernel** y selecciona el intérprete del proyecto:
-`.venv/bin/python` en macOS/Linux o `.venv/Scripts/python.exe` en Windows.
+Abre la carpeta del proyecto indicado en el README de la sesión y ejecuta
+`uv sync --locked` en su terminal. La sesión 1 tiene dos proyectos, cada uno con
+su propia `.venv`. Abre la notebook desde el enlace del README y usa el entorno
+de ese proyecto como kernel. Cada proyecto incluye `ipykernel`; reiniciar el
+kernel borra las variables que habían quedado en memoria.
 
-Cada proyecto declara `ipykernel` como dependencia de desarrollo. Al cambiar de
-proyecto, selecciona el kernel de su propia `.venv`; reiniciar el kernel borra las
-variables que habían quedado en memoria.
+### VS Code (recomendado)
 
-[Guía oficial de notebooks en VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) ·
-[Entornos y kernels de VS Code](https://code.visualstudio.com/docs/datascience/jupyter-kernel-management) ·
-[uv con VS Code y notebooks](https://docs.astral.sh/uv/guides/integration/jupyter/#using-jupyter-from-vs-code)
+Instala las extensiones **Python** y **Jupyter**. En la esquina superior derecha
+de la notebook, elige **Select Kernel → Python Environments → `.venv`**. Si no
+aparece, usa **Select Another Kernel** y selecciona `.venv/bin/python` en
+macOS/Linux o `.venv/Scripts/python.exe` en Windows.
+
+[Notebooks en VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) ·
+[uv con VS Code](https://docs.astral.sh/uv/guides/integration/jupyter/#using-jupyter-from-vs-code)
+
+### PyCharm
+
+Abre la carpeta del proyecto en PyCharm. En **Python Interpreter**, selecciona
+**Add Interpreter → Add Local Interpreter → uv** y elige la `.venv` existente.
+Abre la notebook desde el enlace del README y ejecuta una celda; PyCharm puede
+iniciar la ejecución local con ese intérprete. Si cambia de proyecto, selecciona
+la `.venv` correspondiente. Si la notebook no se abre correctamente, comprueba
+que el complemento **Markdown** esté habilitado en PyCharm.
+
+[Notebooks en PyCharm](https://www.jetbrains.com/help/pycharm/jupyter-notebook-support.html) ·
+[Entornos uv en PyCharm](https://www.jetbrains.com/help/pycharm/uv.html)
 
 ## Ejercicios
 
