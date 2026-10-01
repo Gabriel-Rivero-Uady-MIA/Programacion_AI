@@ -22,6 +22,23 @@ Envía los entregables mediante el [formulario de entrega](https://docs.google.c
 Las notebooks se numeran de forma continua dentro de la unidad: `u2_n1`,
 `u2_n2`, `u2_n3`, etc.
 
+## Notebooks en VS Code
+
+Instala las extensiones **Python** y **Jupyter** de VS Code. Desde la carpeta del
+proyecto de cada sesión, ejecuta `uv sync --locked` en la terminal integrada y
+abre la notebook mediante el enlace de su README. En la esquina superior derecha,
+elige **Select Kernel → Python Environments → `.venv`**. Si `.venv` no aparece,
+usa **Select Another Kernel** y selecciona el intérprete del proyecto:
+`.venv/bin/python` en macOS/Linux o `.venv/Scripts/python.exe` en Windows.
+
+Cada proyecto declara `ipykernel` como dependencia de desarrollo. Al cambiar de
+proyecto, selecciona el kernel de su propia `.venv`; reiniciar el kernel borra las
+variables que habían quedado en memoria.
+
+[Guía oficial de notebooks en VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) ·
+[Entornos y kernels de VS Code](https://code.visualstudio.com/docs/datascience/jupyter-kernel-management) ·
+[uv con VS Code y notebooks](https://docs.astral.sh/uv/guides/integration/jupyter/#using-jupyter-from-vs-code)
+
 ## Ejercicios
 
 La [sesión 1](./sesion-01-numpy/README.md) tiene ejercicios en las notebooks y

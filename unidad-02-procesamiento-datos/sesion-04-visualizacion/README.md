@@ -28,10 +28,12 @@ Desde esta carpeta:
 
 ```bash
 uv sync --locked
-uv run --locked jupyter lab
 ```
 
-Abre la notebook con el kernel de este proyecto. Aquí usamos los archivos NumPy
+Abre [u2_n5_visualizacion.ipynb](./u2_n5_visualizacion.ipynb) en VS Code con el
+kernel de este proyecto; consulta la
+[configuración del editor](../README.md#notebooks-en-vs-code).
+Aquí usamos los archivos NumPy
 ya exportados, por lo que no hace falta instalar PyTorch otra vez.
 
 ## Exportar los ejemplos

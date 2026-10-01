@@ -8,12 +8,11 @@ Desde la raíz del repositorio:
 cd unidad-02-procesamiento-datos/sesion-01-numpy/01-exploracion
 uv sync --locked
 uv run --locked python main.py
-uv run --locked jupyter lab
 ```
 
-Abre `u2_n1_arreglos_numpy.ipynb` en JupyterLab. El kernel ejecuta Python y mantiene
-las variables de las celdas; reiniciarlo borra ese estado. Al ejecutar Jupyter desde
-el proyecto con `uv`, se usa su entorno y sus dependencias.
+Abre [u2_n1_arreglos_numpy.ipynb](./01-exploracion/u2_n1_arreglos_numpy.ipynb)
+en VS Code. El kernel ejecuta Python y mantiene las variables de las celdas;
+reiniciarlo borra ese estado.
 
 En VS Code, abre la carpeta del proyecto, ejecuta `uv sync --locked` en su terminal
 y selecciona **Select Kernel → Python Environments → .venv**. En macOS/Linux el
@@ -35,12 +34,11 @@ reconstruir un proyecto de exploración **en otra carpeta nueva**, ejecuta:
 uv init --no-package --python 3.13 numpy-lab
 cd numpy-lab
 uv add numpy
-uv add --dev jupyterlab ipykernel nbconvert
-uv run jupyter lab
+uv add --dev ipykernel nbconvert
 ```
 
-`numpy` es una dependencia de la aplicación. JupyterLab e ipykernel permiten el
-trabajo interactivo; nbconvert permite ejecutar la notebook desde la terminal.
+`numpy` es una dependencia de la aplicación. `ipykernel` permite ejecutar las
+celdas desde VS Code; `nbconvert` permite comprobar la notebook desde la terminal.
 `uv.lock` registra las versiones resueltas. Un proyecto creado hoy puede resolver
 versiones distintas de la referencia; `uv sync --locked` reproduce las de cada lock.
 
@@ -63,7 +61,7 @@ Completa los ejercicios 7 y 8 y añade una celda para el ejercicio 9 de
 
 ## 4. Pasar al proyecto de reporte
 
-Detén JupyterLab con Ctrl+C en la terminal y confirma su cierre si lo solicita.
+En VS Code, abre la carpeta del segundo proyecto y selecciona su propio kernel.
 Desde `01-exploracion`:
 
 ```bash
@@ -71,10 +69,10 @@ cd ../02-reporte-mediciones
 uv sync --locked
 uv run --locked python main.py
 uv run --locked python main.py ../datos/readings_quality.csv --output-dir outputs/quality
-uv run --locked jupyter lab
 ```
 
-Abre `u2_n2_reporte_mediciones.ipynb`. Recorre las funciones de
+Abre [u2_n2_reporte_mediciones.ipynb](./02-reporte-mediciones/u2_n2_reporte_mediciones.ipynb).
+Recorre las funciones de
 `measurements/processing.py`: lectura, comprobación de forma, selección y resumen.
 La notebook importa esas funciones. `main.py` añade argumentos, logging y archivos
 de salida. Si editas un módulo, reinicia el kernel antes de repetir la notebook,
@@ -120,5 +118,5 @@ uv run --locked jupyter nbconvert --to notebook --execute u2_n1_arreglos_numpy.i
 
 En el segundo proyecto cambia el nombre por `u2_n2_reporte_mediciones.ipynb` y la
 salida por `u2_n2_reporte_mediciones.executed.ipynb`. Los archivos ejecutados quedan
-ignorados por Git. En JupyterLab, la comprobación equivalente es reiniciar el
+ignorados por Git. En VS Code, la comprobación equivalente es reiniciar el
 kernel y ejecutar todas las celdas.

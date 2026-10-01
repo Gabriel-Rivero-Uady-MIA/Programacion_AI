@@ -43,7 +43,6 @@ Después prepara este proyecto y descarga CIFAR-10:
 ```bash
 uv sync --locked
 uv run --locked python main.py --download
-uv run --locked jupyter lab
 ```
 
 La primera descarga obtiene el archivo completo de CIFAR-10 (unos 170 MB
@@ -52,8 +51,9 @@ archivo de descarga incluye ambos conjuntos. Prepara la descarga antes de clase.
 En ejecuciones posteriores puedes omitir `--download`; la notebook utiliza
 los archivos locales y no intenta descargarlos.
 
-Abre la notebook con el kernel de este proyecto. En VS Code, selecciona el
-intérprete de su carpeta `.venv`.
+Abre [u2_n4_tensores_datasets.ipynb](./u2_n4_tensores_datasets.ipynb) en VS Code
+con el kernel de este proyecto. Selecciona el intérprete de su carpeta `.venv`;
+consulta la [configuración del editor](../README.md#notebooks-en-vs-code).
 
 ## Proyecto
 
