@@ -27,8 +27,9 @@ Las notebooks se numeran de forma continua dentro de la unidad: `u2_n1`,
 Abre la carpeta del proyecto indicado en el README de la sesión y ejecuta
 `uv sync --locked` en su terminal. La sesión 1 tiene dos proyectos, cada uno con
 su propia `.venv`. Abre la notebook desde el enlace del README y usa el entorno
-de ese proyecto como kernel. Cada proyecto incluye `ipykernel`; reiniciar el
-kernel borra las variables que habían quedado en memoria.
+de ese proyecto como kernel. Cada proyecto incluye `ipykernel` y `pip` para la
+integración con el editor; reiniciar el kernel borra las variables que habían
+quedado en memoria.
 
 ### VS Code (recomendado)
 

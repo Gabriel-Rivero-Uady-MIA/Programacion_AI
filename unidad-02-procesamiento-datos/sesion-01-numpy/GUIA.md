@@ -35,11 +35,12 @@ reconstruir un proyecto de exploración **en otra carpeta nueva**, ejecuta:
 uv init --no-package --python 3.13 numpy-lab
 cd numpy-lab
 uv add numpy
-uv add --dev ipykernel nbconvert
+uv add --dev ipykernel nbconvert pip
 ```
 
 `numpy` es una dependencia de la aplicación. `ipykernel` permite ejecutar las
-celdas desde VS Code; `nbconvert` permite comprobar la notebook desde la terminal.
+celdas desde el editor, `pip` evita el aviso de instalación del kernel en VS Code
+y `nbconvert` permite comprobar la notebook desde la terminal.
 `uv.lock` registra las versiones resueltas. Un proyecto creado hoy puede resolver
 versiones distintas de la referencia; `uv sync --locked` reproduce las de cada lock.
 
