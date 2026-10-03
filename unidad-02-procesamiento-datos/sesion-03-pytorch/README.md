@@ -4,7 +4,8 @@
 
 Convertiremos las matrices de Titanic a tensores y después exploraremos imágenes
 de CIFAR-10. Trabajaremos con muestras, etiquetas, transformaciones y lotes para
-entender los datos que recibe una aplicación de aprendizaje automático.
+entender los datos que recibe una aplicación de aprendizaje automático. Al final,
+convertiremos textos en embeddings y haremos una búsqueda por similitud.
 
 ## Entrega de prácticas
 
@@ -20,6 +21,7 @@ Envía los entregables mediante el [formulario de entrega](https://docs.google.c
 | 3 | CIFAR-10 y transformaciones de imágenes | Notebook, sección 3 |
 | 4 | Ejes de un lote y normalización | Notebook, sección 4 |
 | 5 | Exportar una selección para visualizarla | Notebook, sección 5 y `main.py` |
+| 6 | Embeddings con SentenceTransformer y búsqueda con PyTorch | Notebook, sección 6 |
 
 Los **ejercicios 1–4** están en
 [u2_n4_tensores_datasets.ipynb](./u2_n4_tensores_datasets.ipynb).
@@ -50,6 +52,17 @@ comprimidos) y lo extrae en `data/`. Aunque usamos el conjunto de prueba, el
 archivo de descarga incluye ambos conjuntos. Prepara la descarga antes de clase.
 En ejecuciones posteriores puedes omitir `--download`; la notebook utiliza
 los archivos locales y no intenta descargarlos.
+
+La sección 6 utiliza `sentence-transformers`, incluida en las dependencias del
+proyecto. La primera carga de `all-MiniLM-L6-v2` descarga los pesos del modelo;
+requiere internet y después utiliza su caché local. Puedes preparar esa descarga
+antes de clase:
+
+```bash
+uv run --locked python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2', device='cpu')"
+```
+
+Es un ejemplo guiado: se mantienen los cinco ejercicios de la práctica.
 
 Abre [u2_n4_tensores_datasets.ipynb](./u2_n4_tensores_datasets.ipynb) en VS Code
 o PyCharm con el entorno `.venv` de este proyecto; consulta las

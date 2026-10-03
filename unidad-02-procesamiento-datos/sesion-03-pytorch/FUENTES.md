@@ -24,3 +24,12 @@ ejemplo de normalización a `[-1, 1]`.
 
 Consulta: 27 de septiembre de 2026. Las versiones del proyecto están fijadas en
 `uv.lock`.
+
+## Embeddings y búsqueda textual
+
+- [Modelo all-MiniLM-L6-v2: dimensiones y límites](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2).
+- [Similitud textual](https://www.sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html).
+- [Normalización por dimensión](https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.normalize.html).
+- [torch.topk](https://docs.pytorch.org/docs/stable/generated/torch.topk.html).
+
+Consulta de esta sección: 3 de octubre de 2026.

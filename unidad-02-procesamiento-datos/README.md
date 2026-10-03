@@ -16,7 +16,7 @@ Envía los entregables mediante el [formulario de entrega](https://docs.google.c
 |---|---|---|
 | 1 | [NumPy y vectorización](./sesion-01-numpy/README.md) | Formas, tipos, selección, vistas, operaciones vectorizadas y broadcasting con mediciones. |
 | 2 | [pandas y paso a NumPy](./sesion-02-pandas/README.md) | Cargar, limpiar, agrupar y unir datos de Titanic; extraer una matriz numérica. |
-| 3 | [PyTorch y datasets](./sesion-03-pytorch/README.md) | Tensores, `Dataset`, `DataLoader` y exploración de CIFAR-10 por lotes. |
+| 3 | [PyTorch y datasets](./sesion-03-pytorch/README.md) | Tensores, `Dataset`, `DataLoader`, CIFAR-10 por lotes y embeddings de texto. |
 | 4 | [Visualización](./sesion-04-visualizacion/README.md) | Histogramas, porcentajes por grupo y cuadrículas de imágenes con Matplotlib. |
 
 Las notebooks se numeran de forma continua dentro de la unidad: `u2_n1`,
