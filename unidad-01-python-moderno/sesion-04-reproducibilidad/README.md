@@ -4,6 +4,10 @@ Construiremos un catálogo de cursos que primero consultaremos como una función
 Python y después como una herramienta MCP. El ejemplo permite trabajar con
 módulos, dependencias, logging y reproducción del entorno.
 
+## Presentación
+
+[Organización y reproducibilidad con uv y un servidor MCP local (PDF)](https://drive.google.com/file/d/1L7z6CxmTSq6CT-fPHlxq593WCAa2HRcI/view?usp=drivesdk).
+
 ## Entrega de prácticas
 
 La fecha límite para entregar las prácticas de la Unidad 1 es el **7 de octubre de 2026**.
