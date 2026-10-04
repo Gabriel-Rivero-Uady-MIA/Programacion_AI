@@ -64,6 +64,10 @@ uv run --locked python -c "from sentence_transformers import SentenceTransformer
 
 Es un ejemplo guiado: se mantienen los cinco ejercicios de la práctica.
 
+Como demostración complementaria, abre [Embeddings en CPU y CUDA en Colab](https://colab.research.google.com/drive/18C8kn_iWqNVayn9ZvcrX203rL4pKpPky).
+Repite la búsqueda en GPU y compara tiempos con el mismo modelo y lote.
+Es independiente de los archivos locales y no añade entregables.
+
 Abre [u2_n4_tensores_datasets.ipynb](./u2_n4_tensores_datasets.ipynb) en VS Code
 o PyCharm con el entorno `.venv` de este proyecto; consulta las
 [opciones de editor](../README.md#notebooks-locales).

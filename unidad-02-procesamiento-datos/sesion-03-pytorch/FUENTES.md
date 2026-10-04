@@ -27,6 +27,10 @@ Consulta: 27 de septiembre de 2026. Las versiones del proyecto están fijadas en
 
 ## Embeddings y búsqueda textual
 
+- [SentenceTransformer: dispositivos y encode](https://www.sbert.net/docs/package_reference/sentence_transformer/model.html).
+- [PyTorch: ejecución asíncrona y medición en CUDA](https://docs.pytorch.org/docs/stable/notes/cuda.html#asynchronous-execution).
+- [Colab: recursos y aceleradores](https://research.google.com/colaboratory/faq.html).
+
 - [Modelo all-MiniLM-L6-v2: dimensiones y límites](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2).
 - [Similitud textual](https://www.sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html).
 - [Normalización por dimensión](https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.normalize.html).
