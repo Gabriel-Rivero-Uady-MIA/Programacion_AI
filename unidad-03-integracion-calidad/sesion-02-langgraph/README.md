@@ -4,6 +4,11 @@ Organizaremos la selección y el análisis de documentos mediante estado compart
 nodos, rutas condicionales y subgraphs. Es la última sesión obligatoria: el workflow usa
 funciones Python y no requiere una API key.
 
+## Entrega de prácticas
+
+La fecha límite para entregar las prácticas de la Unidad 3 es el **16 de octubre de 2026**.
+Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLSd0_iF2IEHUsLu2WXZuq-GwOSBUTfPyKNV4ht_mbH070wxljg/viewform?usp=publish-editor).
+
 ## Material
 
 - [Presentación (PDF)](https://drive.google.com/file/d/10Oltc1j8sLw8XvC9iIovqiQYm0wEzsZV/view?usp=drivesdk).

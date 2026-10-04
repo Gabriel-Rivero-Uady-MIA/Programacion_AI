@@ -4,6 +4,11 @@ Conectaremos Python a un catálogo de documentos: primero como tabla SQLite y lu
 como grafo Neo4j. El foco está en conexiones, consultas parametrizadas, resultados
 y context managers; no en administrar bases de datos.
 
+## Entrega de prácticas
+
+La fecha límite para entregar las prácticas de la Unidad 3 es el **16 de octubre de 2026**.
+Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLSd0_iF2IEHUsLu2WXZuq-GwOSBUTfPyKNV4ht_mbH070wxljg/viewform?usp=publish-editor).
+
 ## Material
 
 - [Presentación (PDF)](https://drive.google.com/file/d/11EPsoBrk9rm0xkdjXOy0PuIkdz48iXc5/view?usp=drivesdk).

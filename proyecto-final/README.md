@@ -62,12 +62,14 @@ de tu aplicación. **Ruff es opcional.**
 
 ## Entregables
 
+Sube el proyecto en un **archivo comprimido (.zip)** mediante el
+[formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLSew4UpE94kmWvK5M54-ubF1aeTqbk5SMOQ1IfDjdBiingDWFw/viewform?usp=publish-editor),
+a más tardar el **19 de octubre de 2026**.
+
 - Carpeta del proyecto con código, `config.json`, `pyproject.toml`, `uv.lock`,
   `.python-version` y `datasets/`. Omite `.venv`, cachés y pesos del modelo.
 - README breve con comandos para iniciar el servidor, ejecutar el cliente y
   comprobar los tipos. Si guardas vectores, explica cómo regenerarlos.
-- Capturas o salida de la demostración: búsqueda, análisis, comparación, producto
-  desconocido y llamada inválida seguida de una válida; incluye la salida de mypy.
 - Dos ejemplos de consultas de dominio con una interpretación breve de sus
   resultados y una limitación. Puedes incluirlos en el mismo README.
 
