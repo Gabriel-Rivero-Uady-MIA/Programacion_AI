@@ -1,13 +1,23 @@
 # Unidad 3: Integración y calidad de aplicaciones de IA
 
-Usaremos Python para trabajar con fuentes de datos y ampliar las aplicaciones del
-curso. El material se organiza por sesión en proyectos con `uv`.
+Usaremos Python para consultar bases de datos y organizar workflows. El material
+se organiza por sesión en proyectos con `uv`; la última sesión es opcional.
 
 ## Contenido
 
 | Sesión | Tema | Trabajo |
 |---|---|---|
 | 1 | [Python como cliente SQL y NoSQL](./sesion-01-sql-nosql/README.md) | SQLite, consultas parametrizadas, pandas y demostración de Neo4j. |
+| 2 | [Workflows de datos con LangGraph](./sesion-02-langgraph/README.md) | Diseño del estado, nodos, rutas y subgraphs. |
+| 3 · Opcional | [Agentes con LangChain](./sesion-03-langchain/README.md) | Mensajes, tools, guardrails y conexión MCP; ejecutar el agente requiere una API key propia. |
 
-La primera sesión tiene tres ejercicios en su notebook de SQLite. Los entregables
-están en `PRACTICA.md`; la parte de Neo4j es una demostración opcional.
+Hay **5 ejercicios**: tres en la notebook de SQLite y dos en la de LangGraph.
+Cada sesión tiene su `PRACTICA.md` con los entregables. Neo4j es una demostración
+opcional; LangChain no tiene entregable. Las dos sesiones obligatorias se pueden
+completar sin una API key.
+
+## Presentaciones
+
+1. [Python como cliente SQL y NoSQL (PDF)](https://drive.google.com/file/d/11EPsoBrk9rm0xkdjXOy0PuIkdz48iXc5/view?usp=drivesdk)
+2. [Workflows de datos con LangGraph (PDF)](https://drive.google.com/file/d/10Oltc1j8sLw8XvC9iIovqiQYm0wEzsZV/view?usp=drivesdk)
+3. [Agentes con LangChain · opcional (PDF)](https://drive.google.com/file/d/1UZk2iv7_CTsek4SLgyDy14KKZe0FVrE5/view?usp=drivesdk)

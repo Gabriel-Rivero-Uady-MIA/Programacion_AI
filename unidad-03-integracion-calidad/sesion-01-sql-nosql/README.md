@@ -6,6 +6,8 @@ y context managers; no en administrar bases de datos.
 
 ## Material
 
+- [Presentación (PDF)](https://drive.google.com/file/d/11EPsoBrk9rm0xkdjXOy0PuIkdz48iXc5/view?usp=drivesdk).
+
 - [SQLite y pandas](./u3_n1_sqlite_pandas.ipynb): ejemplos y **3 ejercicios**.
 - [Neo4j](./u3_n2_neo4j.ipynb): demostración opcional, sin ejercicios.
 - [PRACTICA.md](./PRACTICA.md): entregables.
