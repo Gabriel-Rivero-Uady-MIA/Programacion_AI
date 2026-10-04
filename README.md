@@ -18,16 +18,13 @@ de Python. Los proyectos administran sus dependencias de manera independiente.
 
 ## Proyecto final
 
-El [proyecto final](./proyecto-final/README.md) integra las unidades 1 y 2 mediante
-un servidor MCP por HTTP local para buscar y analizar productos de Amazon Reviews 2023
-(Subscription Boxes), con embeddings y operaciones de PyTorch o NumPy. Un cliente
-Python demuestra sus herramientas y muestra los resultados.
-La fecha límite es el **19 de octubre de 2026**.
-La guía contiene el alcance, los entregables y los criterios de evaluación. Incluye una
-[notebook de preparación y exploración](./proyecto-final/preparacion_datos.ipynb), una
-[guía de desarrollo](./proyecto-final/GUIA.md) y una
-[guía de conexión HTTP](./proyecto-final/MCP_HTTP.md).
-Los contenidos de la unidad 3 pueden incorporarse como ampliación opcional.
+El [proyecto final](./proyecto-final/README.md) integra las unidades 1 y 2: un
+servidor MCP por HTTP local para buscar y analizar una selección de Electronics,
+con embeddings y operaciones de PyTorch o NumPy. Incluye los datos, una notebook
+de exploración y guías de desarrollo y conexión.
+
+**Fecha límite: 19 de octubre de 2026.** Consulta sus entregables y evaluación en
+el README del proyecto. La unidad 3 puede incorporarse como ampliación opcional.
 
 ## Ejercicios
 

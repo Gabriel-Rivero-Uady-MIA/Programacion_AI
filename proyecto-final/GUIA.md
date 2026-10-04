@@ -12,9 +12,10 @@ uv add numpy torch sentence-transformers "mcp>=2,<3"
 uv add --dev mypy pandas matplotlib ipykernel
 ```
 
-Copia la [notebook](./preparacion_datos.ipynb) y [config.json](./config.json) a tu
-proyecto. Abre la notebook en VS Code o PyCharm con el intérprete de `.venv` y
-ejecútala en orden. Reconoce IDs, valoraciones, textos vacíos y tamaños de muestra.
+Copia la [notebook](./preparacion_datos.ipynb), [datasets](./datasets/) y
+[config.json](./config.json) a tu proyecto. Abre la notebook en VS Code o PyCharm
+con el intérprete de `.venv` y ejecuta la lectura y exploración. La sección de
+regeneración es opcional.
 
 ## 2. Preparar los datos y el modelo
 
@@ -36,21 +37,9 @@ con lo que cuentan sus clientes.
 
 ### Seleccionar los textos y conservar su orden
 
-Retoma `texts`, `review_ids` y `searchable_reviews` de la última sección de la
-[notebook de preparación](./preparacion_datos.ipynb). Los textos sin contenido se
-excluyen de la búsqueda; conserva todas las reseñas para las estadísticas.
-
-| Posición | ID de reseña | Texto | Vector |
-|---|---|---|---|
-| 0 | Primer ID de `review_ids` | `texts[0]` | Primera fila de la matriz |
-| 1 | Segundo ID de `review_ids` | `texts[1]` | Segunda fila de la matriz |
-
-No ordenes ni filtres una de estas listas por separado después de generar los
-vectores. Cuando recuperes una posición, úsala para encontrar el ID y el registro
-de esa misma reseña. No asumas que corresponde a la lista de todas las reseñas,
-porque esa lista también incluye textos vacíos. Si conservas la selección como
-DataFrame, recupera por posición con `.iloc[position]`; `.loc` busca por etiqueta
-de índice y el filtrado puede haber dejado saltos en esas etiquetas.
+Retoma `texts`, `review_ids` y `review_product_ids` de la sección 7 de la
+[notebook](./preparacion_datos.ipynb). La fila `i` de los embeddings corresponde a
+`texts[i]` y a esos mismos IDs: no ordenes ni filtres las listas por separado.
 
 ### Empezar con tres textos
 
@@ -65,7 +54,7 @@ model = SentenceTransformer(
 )
 example_texts = [
     "The package arrived two weeks late.",
-    "The coffee tastes fresh and delicious.",
+    "The headphones feel comfortable.",
     "Customer support answered my question quickly.",
 ]
 review_vectors = model.encode(
@@ -81,7 +70,7 @@ print("Shape:", review_vectors.shape)  # torch.Size([3, 384])
 en su orden original. `convert_to_tensor=True` devuelve un tensor PyTorch.
 `normalize_embeddings=True` ajusta cada vector a longitud uno, lo que permite
 calcular similitud coseno mediante producto escalar. Puedes normalizar los vectores
-con PyTorch o NumPy por separado si prefieres seguir el ejemplo de clase.
+con PyTorch o NumPy por separado, como en clase.
 
 La primera carga descarga el modelo. Las siguientes aprovechan su caché local.
 Este modelo está orientado a inglés y trunca textos mayores de 256 tokens de su
@@ -89,21 +78,14 @@ tokenizador: utiliza consultas en inglés y menciona esta limitación en tu inte
 
 ### Representar cada producto con catálogo y reseñas
 
-El catálogo aporta `title` y una lista `features`. En estos archivos `description`
-está vacío: utiliza **título + características** como texto de catálogo. Puedes
-unir las características con `" ".join(features)` y añadir el título.
+El catálogo aporta `title` y las listas `features` y `description`. Utiliza
+**título + características + descripción disponible** como texto de catálogo.
+Une cada lista con `" ".join(...)`; una lista vacía aporta una cadena vacía.
 
-Prepara estas dos fuentes con el mismo modelo y `normalize_embeddings=True`:
-
-| Fuente | Qué codificar | Qué conservar |
-|---|---|---|
-| Catálogo | Un texto de título y características por producto con texto. | ID del producto asociado a cada vector. |
-| Reseñas | Cada reseña con texto, por separado. | ID de reseña e ID del producto asociado a cada fila. |
-
-No concatenes todas las reseñas de un producto: el modelo truncaría el texto.
-**Promedia sus vectores**, agrupando por `product_id`. Para un producto con tres
-reseñas, la selección tiene forma `(3, 384)` y `mean(dim=0)` produce `(384,)`.
-Este promedio resume temas de las opiniones; no calcula la valoración del producto.
+Codifica el catálogo por producto y las reseñas por separado, con el mismo modelo
+y `normalize_embeddings=True`. No concatenes todas las reseñas: el modelo truncaría
+el texto. Agrupa sus vectores por `product_id` y calcula la media. Por ejemplo,
+para un tensor de forma `(5, 384)`, `mean(dim=0)` produce `(384,)`; resume temas, no estrellas.
 
 El cálculo tiene tres pasos:
 
@@ -135,19 +117,9 @@ sus reseñas y calcular `mean(dim=0)`. Al terminar, reúne los vectores con
 `torch.stack`. En NumPy, las operaciones equivalentes son `mean(axis=0)`,
 normalización por longitud y `np.stack`.
 
-**Si falta una fuente**, utiliza y normaliza la disponible. Un producto sin
-catálogo puede usar sus reseñas; uno sin reseñas con texto puede usar el catálogo.
-Si no hay texto en ninguna fuente, exclúyelo de la búsqueda, pero conserva sus
-valoraciones para análisis.
-
-Obtendrás una matriz final de **`(641, 384)`** y una lista `product_ids` en el
-mismo orden. Estos archivos tienen 640 productos con texto de catálogo; el restante
-se representa mediante sus reseñas. Conserva también el conteo total de reseñas
-por producto, incluidas las que no tienen texto, para mostrarlo en los resultados.
-
-Prepara esta matriz una vez al iniciar el servidor. Las reseñas y el catálogo se
-codifican por lotes; la búsqueda compara solo los 641 vectores finales. Mantén
-modelo, matriz y registros en memoria; guardarlos en disco es opcional.
+Reúne los vectores finales en una matriz **`(600, 384)`** y conserva `product_ids`
+en el mismo orden. Los datos proporcionados tienen catálogo y reseñas para los
+600 productos. Mantén la matriz y el modelo en memoria para reutilizarlos.
 
 ### Codificar una consulta
 
@@ -163,10 +135,9 @@ print("Query shape:", query_vectors.shape)  # torch.Size([1, 384])
 print("Vector shape:", query_vector.shape)  # torch.Size([384])
 ```
 
-La lista `[query]` contiene un solo texto. `[0]` obtiene su vector para compararlo
-con todas las filas de la matriz de productos. La consulta se codifica en cada
-llamada; los vectores de productos se reutilizan. Si trabajas con NumPy, puedes convertir los tensores de CPU
-con `.cpu().numpy()` y continuar allí.
+`[0]` obtiene el vector de la única consulta. Codifícala en cada llamada y
+compárala con la matriz preparada. Para usar NumPy, convierte los tensores de CPU
+con `.cpu().numpy()`.
 
 ## 4. Implementar búsqueda y análisis
 
@@ -175,30 +146,25 @@ Dentro de `search_products`, sigue este recorrido:
 1. Valida la consulta y `top_k` según el enunciado.
 2. Codifica la consulta con el modelo ya cargado.
 3. Calcula un puntaje por producto: el producto de la matriz normalizada por el
-   vector normalizado de la consulta. Para el dataset, `(641, 384) @ (384,)`
-   produce `(641,)`.
+   vector normalizado de la consulta. Para el dataset, `(600, 384) @ (384,)`
+   produce `(600,)`.
 4. Selecciona las posiciones con mayor puntaje usando `torch.topk` o
    `np.argsort` en orden descendente. Limita la cantidad al número de candidatos.
 5. Recupera los productos mediante esas posiciones en `product_ids` y devuelve
    ID, título, similitud y conteo total de reseñas como valores de Python.
 
-Prueba consultas de catálogo, como `"A box with games for couples"`, y consultas
-de experiencias, como `"Problems with delivery and customer service"`. Revisa
-los títulos de los productos recuperados y sus tamaños de muestra. La puntuación
-mide similitud; no representa una probabilidad ni garantiza relevancia.
+Prueba consultas de catálogo, como `"A portable waterproof Bluetooth speaker"`, y consultas
+de experiencias, como `"Comfortable headphones with good sound"`. Revisa
+los títulos recuperados y sus tamaños de muestra.
 
 Para el análisis, selecciona las valoraciones del producto y calcula conteos,
-proporciones, media y mediana. Incluye las reseñas sin texto. La comparación
-reutiliza estos cálculos para los productos solicitados.
+proporciones, media y mediana. La comparación reutiliza estos cálculos.
 
 ## 5. Conectar y demostrar
 
 Sigue [MCP_HTTP.md](./MCP_HTTP.md) para registrar las herramientas y utilizar los
-snippets de `client.py` y `main.py`. Prepara los datos antes de atender consultas,
-sin volver a codificar todas las reseñas en cada llamada.
-
-Ejecuta el servidor en una terminal y el cliente en otra. Revisa búsqueda, análisis,
-comparación, producto desconocido y recuperación tras una entrada inválida.
+snippets de `client.py` y `main.py`. Ejecuta el servidor y el cliente en terminales
+separadas; el cliente incluye los casos de demostración.
 
 ## 6. Comprobar y entregar
 

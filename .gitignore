@@ -63,3 +63,6 @@ NOTAS_DOCENTE.md
 
 # Local final-project validation
 /proyecto-final/reference-project/
+
+# Optional rebuilt final-project data (the provided datasets are versioned)
+datasets_rebuilt/

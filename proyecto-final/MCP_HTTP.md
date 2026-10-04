@@ -52,12 +52,12 @@ from mcp import Client
 
 async def demonstrate() -> None:
     calls: list[tuple[str, dict[str, Any]]] = [
-        ("search_products", {"query": "A box with games for couples", "top_k": 3}),
-        ("analyze_product", {"product_id": "B07N1572VL"}),
-        ("compare_products", {"product_ids": ["B07N1572VL", "B07DNLTBG7"]}),
+        ("search_products", {"query": "A portable waterproof Bluetooth speaker", "top_k": 3}),
+        ("analyze_product", {"product_id": "B0BCTJMN63"}),
+        ("compare_products", {"product_ids": ["B0BCTJMN63", "B09MMWM2Y8"]}),
         ("analyze_product", {"product_id": "UNKNOWN_PRODUCT"}),
         ("search_products", {"query": "delivery", "top_k": 0}),
-        ("search_products", {"query": "Problems with delivery and customer service", "top_k": 2}),
+        ("search_products", {"query": "Comfortable headphones with good sound", "top_k": 2}),
     ]
     async with Client("http://127.0.0.1:8000/mcp") as client:
         tools = await client.list_tools()
@@ -88,8 +88,8 @@ uv run --locked python main.py
 
 El cliente descubre las herramientas y muestra sus respuestas. La llamada con
 `top_k=0` debe producir un error; la siguiente debe funcionar en la misma conexión.
-No necesitas un agente. Si falla la conexión, comprueba que el servidor sigue
-abierto, que usa el puerto 8000 y que la URL termina en `/mcp`.
+Si falla la conexión, comprueba que el servidor sigue abierto en el puerto 8000
+y que la URL termina en `/mcp`.
 
 ## Referencias oficiales
 

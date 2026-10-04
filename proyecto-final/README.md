@@ -2,54 +2,46 @@
 
 **Fecha límite: 19 de octubre de 2026.**
 
-Construye un servidor MCP local para buscar y analizar productos de
-**Amazon Reviews 2023, categoría Subscription Boxes**. Sus herramientas permitirán
-consultar experiencias sobre entregas, contenido de las cajas y atención al cliente,
-y comparar las valoraciones de los productos.
-
-Utilizarás embeddings y operaciones vectorizadas con **PyTorch o NumPy**.
-La demostración se realiza con un cliente Python por HTTP; **no necesitas crear
-ni conectar un agente para probar o entregar el proyecto**.
+Construye un servidor MCP por HTTP local para buscar y analizar productos de
+**Amazon Reviews 2023 · Electronics**, utilizando embeddings y operaciones de
+**PyTorch o NumPy**. Proporcionamos una selección de **600 productos y 6 992 reseñas**,
+entre 5 y 30 por producto; no necesitas preparar otra muestra ni crear un agente.
 
 ## Material proporcionado
 
-- [Notebook de preparación y exploración](./preparacion_datos.ipynb): descarga,
-  lectura de JSONL y ejemplos con pandas y Matplotlib.
+- [Notebook](./preparacion_datos.ipynb): lectura y exploración de los datos.
+- [datasets](./datasets/): los dos archivos pequeños que utilizará la aplicación.
 - [Guía de desarrollo](./GUIA.md): pasos para crear tu proyecto y trabajar con embeddings.
 - [config.json](./config.json): configuración del modelo para incorporar a tu aplicación.
 - [Guía HTTP y snippets de `client.py` y `main.py`](./MCP_HTTP.md): conexión y demostración.
-- [Dataset](./DATASET.md): archivos oficiales, campos y alcance.
+- [Dataset](./DATASET.md): campos, diversidad, selección y fuentes.
 
 ## Qué implementar
 
-Crea tu proyecto con **`uv`** y trabaja con los archivos completos de reseñas y
-metadatos. Adapta la lectura de la notebook, carga la configuración e implementa
+Crea tu proyecto con **`uv`** y trabaja con los dos archivos de la selección proporcionada
+en `datasets/`. Adapta la lectura de la notebook, carga la configuración e implementa
 la codificación de textos con `sentence-transformers/all-MiniLM-L6-v2`.
 
-Genera embeddings del título y características del catálogo, y de las reseñas.
-Promedia las reseñas por producto y combina ambas fuentes con el mismo peso;
-normaliza el vector final. Conserva la correspondencia entre vectores e IDs de producto. Prepara los vectores una vez y reutilízalos en las consultas. Puedes
-mantenerlos en memoria al iniciar el servidor o guardarlos para cargarlos después.
-Utiliza el mismo modelo para catálogo, reseñas y consultas; no necesitas entrenarlo.
-La [guía de embeddings](./GUIA.md#3-generar-los-embeddings-para-la-búsqueda) explica
-la selección de textos, las formas de los tensores y el recorrido de una consulta.
+Combina el embedding del catálogo con el promedio normalizado de los embeddings
+de sus reseñas: **50 % de cada fuente**, seguido de normalización. Usa el mismo
+modelo para catálogo, reseñas y consultas; prepara los vectores una vez al iniciar
+el servidor. La [guía](./GUIA.md#3-generar-los-embeddings-para-la-búsqueda) explica
+las operaciones con ejemplos.
 
 Implementa estas tres herramientas:
 
 | Herramienta | Operación | Resultado esperado |
 |---|---|---|
-| `search_products(query, top_k=5)` | Buscar productos por similitud coseno, combinando catálogo y reseñas. | ID de producto, título, similitud y cantidad total de reseñas, en orden descendente. |
+| `search_products(query, top_k=5)` | Buscar productos por similitud coseno, combinando catálogo y reseñas. | ID de producto, título, similitud y cantidad de reseñas seleccionadas, en orden descendente. |
 | `analyze_product(product_id)` | Resumir las valoraciones de un producto. | Cantidad de reseñas, conteos y proporciones de 1 a 5 estrellas, media y mediana. |
 | `compare_products(product_ids)` | Comparar al menos dos productos distintos. | Resumen de cada producto y diferencias de media respecto al primero. |
 
-Calcula similitudes y estadísticas con arreglos de NumPy o tensores de PyTorch.
-Puedes usar pandas para explorar o relacionar los metadatos por `parent_asin`.
-Conserva las reseñas sin texto para las estadísticas, aunque no tengan embedding.
-Indica el tamaño de muestra y devuelve datos serializables por el cliente MCP.
+Calcula las similitudes y estadísticas con NumPy o PyTorch y devuelve valores de
+Python serializables. Puedes usar pandas para explorar los datos. Organiza el
+código en módulos o directamente en `server.py`.
 
-Puedes implementar las herramientas directamente en `server.py` o separarlas en
-módulos. La guía propone `support` como una forma de organizar el código, sin
-exigir una arquitectura particular.
+Las estadísticas describen **las reseñas seleccionadas**, no todas las valoraciones
+de Amazon. No se evalúan la regeneración ni las gráficas de la notebook.
 
 ## Ejecución y comportamiento
 
@@ -70,10 +62,10 @@ de tu aplicación. **Ruff es opcional.**
 
 ## Entregables
 
-- Carpeta del proyecto con código, `config.json`, `pyproject.toml`, `uv.lock` y
-  `.python-version`. Omite `.venv`, cachés y pesos del modelo.
-- README breve con comandos para obtener los datos, iniciar el servidor, ejecutar
-  el cliente y comprobar los tipos. Si guardas vectores, explica cómo regenerarlos.
+- Carpeta del proyecto con código, `config.json`, `pyproject.toml`, `uv.lock`,
+  `.python-version` y `datasets/`. Omite `.venv`, cachés y pesos del modelo.
+- README breve con comandos para iniciar el servidor, ejecutar el cliente y
+  comprobar los tipos. Si guardas vectores, explica cómo regenerarlos.
 - Capturas o salida de la demostración: búsqueda, análisis, comparación, producto
   desconocido y llamada inválida seguida de una válida; incluye la salida de mypy.
 - Dos ejemplos de consultas de dominio con una interpretación breve de sus
@@ -91,15 +83,13 @@ de tu aplicación. **Ruff es opcional.**
 | Anotaciones y `mypy --strict` | 5 |
 | **Total** | **100** |
 
-Se revisarán la correspondencia vector–producto, la combinación de ambas fuentes, el orden
-de búsqueda y las estadísticas de las reseñas correctas. La organización interna
-y las herramientas opcionales no añaden ni restan puntos.
+Se revisarán la correspondencia vector–producto, la combinación de ambas fuentes,
+el orden de búsqueda y las estadísticas. Las ampliaciones opcionales no afectan la calificación.
 
 ## Ampliaciones opcionales
 
-Puedes añadir `keywords` a la búsqueda para filtrar por palabras normalizadas
-del catálogo o de las reseñas antes de ordenar por similitud. Es una ampliación opcional, no un requisito para
-obtener los 100 puntos. Describe cómo combinas las palabras si la implementas.
+Puedes añadir `keywords` para filtrar por palabras normalizadas antes de ordenar
+por similitud; describe cómo combinas esas palabras.
 
 También puedes explorar clasificación o estimación de valoraciones mediante
 vecinos similares, usando registros separados del índice para evaluar. Las

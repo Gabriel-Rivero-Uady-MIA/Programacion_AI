@@ -1,65 +1,56 @@
-# Dataset: Amazon Reviews 2023 · Subscription Boxes
+# Dataset: Amazon Reviews 2023 · selección de Electronics
 
-Trabajaremos con la categoría **Subscription Boxes** de Amazon Reviews 2023. El dataset incluye reseñas con texto, estrellas e identificadores y
-metadatos con títulos y características (`features`) de productos. Los archivos se relacionan
-mediante `parent_asin`; algunos productos pueden no tener metadatos.
+Usaremos **600 productos y 6 992 reseñas**, entre 5 y 30 por producto. La selección
+incluye catálogo y opiniones, relacionados mediante `parent_asin`. Es un subconjunto
+pequeño de Electronics, que contiene aproximadamente 43,9 millones de reseñas,
+y de Amazon Reviews 2023, con aproximadamente 571,54 millones.
+[Estadísticas oficiales](https://amazon-reviews-2023.github.io/#grouped-by-category).
 
-La categoría tiene aproximadamente **16 200 reseñas y 641 productos asociados a
-las reseñas**. Sus archivos comprimidos son pequeños:
+## Archivos proporcionados
 
-- [Reseñas: Subscription_Boxes.jsonl.gz](https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/review_categories/Subscription_Boxes.jsonl.gz), aproximadamente 2,7 MB.
-- [Metadatos: meta_Subscription_Boxes.jsonl.gz](https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/meta_categories/meta_Subscription_Boxes.jsonl.gz), aproximadamente 0,28 MB.
+- [datasets/reviews.jsonl.gz](./datasets/reviews.jsonl.gz): opiniones, estrellas,
+  ID de producto y número de línea en el archivo original.
+- [datasets/products.jsonl.gz](./datasets/products.jsonl.gz): título,
+  características, descripción disponible, categorías originales y familia.
 
-La [notebook de preparación](./preparacion_datos.ipynb) muestra cómo descargar y
-leer ambos archivos. Guárdalos en `data/` como `reviews.jsonl.gz` y
-`products.jsonl.gz`. Los tamaños corresponden a los archivos comprimidos;
-el modelo de embeddings se descarga por separado.
+Copia la carpeta `datasets/` a tu proyecto. Ambos archivos juntos ocupan aproximadamente
+1,1 MB comprimido. Usa los archivos completos de **esta selección**; no descargues
+la categoría completa ni construyas otra muestra para la entrega. El modelo de
+embeddings se descarga por separado.
 
-## Qué es JSONL
+## Diversidad y selección
 
-En un archivo JSONL, cada línea es un objeto JSON independiente. Por ejemplo:
+| Familia | Productos |
+|---|---:|
+| Computación y accesorios | 236 |
+| Audio | 157 |
+| Televisión y video | 77 |
+| Fotografía | 58 |
+| Accesorios y suministros | 52 |
+| Wearables | 20 |
+| **Total** | **600** |
 
-```jsonl
-{"parent_asin": "PRODUCT_A", "text": "Good selection of items.", "rating": 5.0}
-{"parent_asin": "PRODUCT_B", "text": "The package arrived late.", "rating": 2.0}
-```
+La [notebook](./preparacion_datos.ipynb) incluye exploración y código de preparación.
+Se leen las primeras **250 000 reseñas y 50 000 metadatos** originales, conservando
+entre 5 y 30 reseñas válidas con texto por producto. Los productos se eligen por
+turnos entre familias, con IDs ordenados. La agrupación usa la segunda entrada de
+`categories`, o `main_category` si falta. Las familias con más candidatos ocupan
+los lugares restantes cuando las otras se agotan.
 
-Cada línea se convierte en un diccionario con `json.loads()`. No se utiliza
-`json.load()` sobre el archivo completo porque el archivo contiene varios
-objetos independientes, sin una lista que los agrupe.
+Es una selección por conveniencia, **no aleatoria ni representativa**. Sus medias
+describen solo las reseñas proporcionadas; el límite de 30 impide interpretar el
+conteo como popularidad en Amazon.
 
-La extensión `.gz` indica compresión con gzip. `gzip.open()` permite leer el
-texto sin descomprimir el archivo manualmente.
+Fuentes originales usadas para preparar los archivos pequeños:
 
-## Leer las reseñas
+- [Electronics.jsonl.gz](https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/review_categories/Electronics.jsonl.gz).
+- [meta_Electronics.jsonl.gz](https://mcauleylab.ucsd.edu/public_datasets/data/amazon_2023/raw/meta_categories/meta_Electronics.jsonl.gz).
 
-Desde la raíz de tu proyecto, después de guardar los archivos en `data/`:
+## Formato
 
-```python
-import gzip
-import json
-
-reviews = []
-with gzip.open("data/reviews.jsonl.gz", "rt", encoding="utf-8") as file:
-    for line in file:
-        if line.strip():
-            review = json.loads(line)
-            reviews.append(review)
-
-print("Reviews:", len(reviews))
-print(reviews[0]["text"])
-print(reviews[0]["rating"])
-print(reviews[0]["parent_asin"])
-```
-
-`"rt"` abre el archivo para leer texto. `reviews` es una lista de diccionarios;
-puedes recorrerla para obtener los textos, las valoraciones y los identificadores
-que acompañarán a las filas de tu matriz de vectores.
-
-Los metadatos se leen de la misma forma, cambiando la ruta por
-`data/products.jsonl.gz`. Después puedes relacionar los registros
-por `parent_asin`. No relaciones los dos archivos por posición: sus filas no
-tienen por qué corresponderse.
+Los archivos son **JSONL comprimido con gzip**: cada línea contiene un objeto JSON
+independiente. La notebook muestra cómo leerlos con `gzip.open()` y `json.loads()`.
+Relaciona los archivos por `parent_asin`, no por posición.
 
 ## Campos principales
 
@@ -70,23 +61,15 @@ tienen por qué corresponderse.
 | Reseñas | `parent_asin` | Identificador del producto al que pertenece la reseña. |
 | Metadatos | `parent_asin` | Identificador para relacionar el producto con sus reseñas. |
 | Metadatos | `title` | Nombre del producto. |
-| Metadatos | `features` | Lista de características que se une al título para representar el catálogo. |
+| Metadatos | `features`, `description` | Listas de características y descripción; se unen al título para representar el catálogo. |
+| Metadatos | `categories`, `family` | Categorías originales y agrupación utilizada para explorar diversidad. |
+| Reseñas | `source_line` | Línea en el archivo original de Electronics; permite construir un ID estable. |
 
-Hay 640 productos con título y 622 con características. `description` está vacío
-en estos archivos; un producto no tiene título ni características y se representa
-con sus reseñas. Consulta la [guía](./GUIA.md) para combinar ambas fuentes.
+Los 600 productos tienen título; 596 tienen características y 303 tienen descripción.
+Las listas vacías se omiten al construir el texto del catálogo.
+Consulta la [guía](./GUIA.md) para combinar catálogo y reseñas.
 
-Para el análisis, utiliza las valoraciones de las reseñas que cargaste. El campo
-`average_rating` de los metadatos es la valoración mostrada en la página del
-producto y no tiene por qué coincidir con la media de esas reseñas.
+Para IDs de reseña estables, utiliza `source_line`, por ejemplo `Electronics:123`.
+`parent_asin` identifica al producto, no a una reseña individual.
 
-Trabaja con ambos archivos completos. Si excluyes textos vacíos u otros registros,
-documenta la regla y conserva la correspondencia entre textos, vectores y
-metadatos. Asigna a cada reseña un identificador estable basado en su número de
-línea original: `parent_asin` identifica un producto, no una reseña individual.
-
-La búsqueda debe identificar los productos recuperados y
-distinguir opiniones de usuarios de información del catálogo. Indica cuántas
-reseñas respaldan cada estadística.
-
-[Fuente original, archivos por categoría y diccionario de datos](https://amazon-reviews-2023.github.io/).
+[Diccionario de datos original](https://amazon-reviews-2023.github.io/#data-fields).
