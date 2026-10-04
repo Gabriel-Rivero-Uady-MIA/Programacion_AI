@@ -12,6 +12,7 @@ recursos y actividades.
 |---|---|---|
 | [1. Python moderno para IA](./unidad-01-python-moderno/README.md) | Fundamentos de Python, tipado, modelos de datos, iteración, concurrencia y reproducibilidad. | Notebooks, una aplicación con `uv` y archivos de práctica. |
 | [2. Procesamiento y representación de datos](./unidad-02-procesamiento-datos/README.md) | NumPy, Pandas, integración de datos, tensores y visualización. | Notebooks dentro de proyectos con `uv` y archivos de práctica. |
+| [3. Integración y calidad de aplicaciones de IA](./unidad-03-integracion-calidad/README.md) | Consultas SQL y NoSQL desde Python. | Proyectos con `uv`, notebooks y prácticas. |
 
 La raíz del repositorio funciona como guía del curso y no constituye un proyecto
 de Python. Los proyectos administran sus dependencias de manera independiente.
@@ -43,6 +44,7 @@ en Google Colab también se encuentran en el README de la sesión correspondient
 | 2 | 2. Tablas con pandas | 5 | [PRACTICA.md](./unidad-02-procesamiento-datos/sesion-02-pandas/PRACTICA.md) |
 | 2 | 3. Tensores y datasets con PyTorch | 5 | [PRACTICA.md](./unidad-02-procesamiento-datos/sesion-03-pytorch/PRACTICA.md) |
 | 2 | 4. Visualización de datos | 2 | [PRACTICA.md](./unidad-02-procesamiento-datos/sesion-04-visualizacion/PRACTICA.md) |
+| 3 | 1. Python como cliente SQL y NoSQL | 3 | [PRACTICA.md](./unidad-03-integracion-calidad/sesion-01-sql-nosql/PRACTICA.md) |
 
 En las sesiones con notebooks, entrega una copia con los ejercicios resueltos,
 resultados y explicaciones. Cuando la práctica incluye un proyecto, entrega
