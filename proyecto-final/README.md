@@ -1,8 +1,8 @@
-# Proyecto final: búsqueda y análisis de reseñas de Amazon con MCP
+# Proyecto final: búsqueda y análisis de productos de Amazon con MCP
 
 **Fecha límite: 19 de octubre de 2026.**
 
-Construye un servidor MCP local para buscar reseñas y analizar productos de
+Construye un servidor MCP local para buscar y analizar productos de
 **Amazon Reviews 2023, categoría Subscription Boxes**. Sus herramientas permitirán
 consultar experiencias sobre entregas, contenido de las cajas y atención al cliente,
 y comparar las valoraciones de los productos.
@@ -26,10 +26,11 @@ Crea tu proyecto con **`uv`** y trabaja con los archivos completos de reseñas y
 metadatos. Adapta la lectura de la notebook, carga la configuración e implementa
 la codificación de textos con `sentence-transformers/all-MiniLM-L6-v2`.
 
-Genera los embeddings por lotes y conserva la correspondencia entre vectores e IDs
-de reseña. Prepara los vectores una vez y reutilízalos en las consultas. Puedes
+Genera embeddings del título y características del catálogo, y de las reseñas.
+Promedia las reseñas por producto y combina ambas fuentes con el mismo peso;
+normaliza el vector final. Conserva la correspondencia entre vectores e IDs de producto. Prepara los vectores una vez y reutilízalos en las consultas. Puedes
 mantenerlos en memoria al iniciar el servidor o guardarlos para cargarlos después.
-Utiliza el mismo modelo para las reseñas y las consultas; no necesitas entrenarlo.
+Utiliza el mismo modelo para catálogo, reseñas y consultas; no necesitas entrenarlo.
 La [guía de embeddings](./GUIA.md#3-generar-los-embeddings-para-la-búsqueda) explica
 la selección de textos, las formas de los tensores y el recorrido de una consulta.
 
@@ -37,7 +38,7 @@ Implementa estas tres herramientas:
 
 | Herramienta | Operación | Resultado esperado |
 |---|---|---|
-| `search_reviews(query, top_k=5)` | Buscar los textos más similares a una consulta mediante similitud coseno. | ID de reseña, texto, producto, valoración y similitud, en orden descendente. |
+| `search_products(query, top_k=5)` | Buscar productos por similitud coseno, combinando catálogo y reseñas. | ID de producto, título, similitud y cantidad total de reseñas, en orden descendente. |
 | `analyze_product(product_id)` | Resumir las valoraciones de un producto. | Cantidad de reseñas, conteos y proporciones de 1 a 5 estrellas, media y mediana. |
 | `compare_products(product_ids)` | Comparar al menos dos productos distintos. | Resumen de cada producto y diferencias de media respecto al primero. |
 
@@ -61,7 +62,7 @@ El cliente debe descubrir e invocar las tres herramientas.
   media/mediana `null`. Si falta una media, la diferencia correspondiente también es `null`.
 - Una llamada inválida no debe impedir una llamada válida posterior.
 
-La búsqueda semántica devuelve los textos más cercanos incluso si la consulta
+La búsqueda semántica devuelve los productos más cercanos incluso si la consulta
 es poco relevante. Su puntuación no es una probabilidad ni mide la calidad del producto.
 
 Usa **anotaciones de tipo** y comprueba **`mypy --strict`** sobre los archivos Python
@@ -90,14 +91,14 @@ de tu aplicación. **Ruff es opcional.**
 | Anotaciones y `mypy --strict` | 5 |
 | **Total** | **100** |
 
-Se revisarán la correspondencia vector–reseña, el uso del mismo modelo, el orden
+Se revisarán la correspondencia vector–producto, la combinación de ambas fuentes, el orden
 de búsqueda y las estadísticas de las reseñas correctas. La organización interna
 y las herramientas opcionales no añaden ni restan puntos.
 
 ## Ampliaciones opcionales
 
 Puedes añadir `keywords` a la búsqueda para filtrar por palabras normalizadas
-antes de ordenar por similitud. Es una ampliación opcional, no un requisito para
+del catálogo o de las reseñas antes de ordenar por similitud. Es una ampliación opcional, no un requisito para
 obtener los 100 puntos. Describe cómo combinas las palabras si la implementas.
 
 También puedes explorar clasificación o estimación de valoraciones mediante

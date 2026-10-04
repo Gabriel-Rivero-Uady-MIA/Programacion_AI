@@ -19,7 +19,7 @@ de Python. Los proyectos administran sus dependencias de manera independiente.
 ## Proyecto final
 
 El [proyecto final](./proyecto-final/README.md) integra las unidades 1 y 2 mediante
-un servidor MCP por HTTP local para buscar y analizar reseñas de Amazon Reviews 2023
+un servidor MCP por HTTP local para buscar y analizar productos de Amazon Reviews 2023
 (Subscription Boxes), con embeddings y operaciones de PyTorch o NumPy. Un cliente
 Python demuestra sus herramientas y muestra los resultados.
 La fecha límite es el **19 de octubre de 2026**.

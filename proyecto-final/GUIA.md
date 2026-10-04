@@ -31,7 +31,8 @@ puedes concentrar el código en `server.py`.
 
 Un embedding es un vector que representa un texto. Con este modelo, cada reseña
 produce **384 números**. La consulta se convierte en otro vector y se compara
-con los de las reseñas para recuperar textos de significado parecido.
+con una representación de cada producto. Combinaremos lo que ofrece el catálogo
+con lo que cuentan sus clientes.
 
 ### Seleccionar los textos y conservar su orden
 
@@ -86,15 +87,67 @@ La primera carga descarga el modelo. Las siguientes aprovechan su caché local.
 Este modelo está orientado a inglés y trunca textos mayores de 256 tokens de su
 tokenizador: utiliza consultas en inglés y menciona esta limitación en tu interpretación.
 
-### Pasar de tres textos al dataset
+### Representar cada producto con catálogo y reseñas
 
-Sustituye `example_texts` por `texts` y utiliza el tamaño de lote de la configuración.
-Con los archivos de esta categoría obtendrás **16 205 filas y 384 columnas**:
-una fila por reseña con texto. Cada fila conserva su posición en `review_ids`.
+El catálogo aporta `title` y una lista `features`. En estos archivos `description`
+está vacío: utiliza **título + características** como texto de catálogo. Puedes
+unir las características con `" ".join(features)` y añadir el título.
 
-Haz esta preparación una vez, antes de atender consultas. Puedes mantener modelo,
-matriz y registros en memoria; guardarlos en disco es opcional. Cambiar `top_k`
-o recibir otra consulta no requiere volver a codificar todas las reseñas.
+Prepara estas dos fuentes con el mismo modelo y `normalize_embeddings=True`:
+
+| Fuente | Qué codificar | Qué conservar |
+|---|---|---|
+| Catálogo | Un texto de título y características por producto con texto. | ID del producto asociado a cada vector. |
+| Reseñas | Cada reseña con texto, por separado. | ID de reseña e ID del producto asociado a cada fila. |
+
+No concatenes todas las reseñas de un producto: el modelo truncaría el texto.
+**Promedia sus vectores**, agrupando por `product_id`. Para un producto con tres
+reseñas, la selección tiene forma `(3, 384)` y `mean(dim=0)` produce `(384,)`.
+Este promedio resume temas de las opiniones; no calcula la valoración del producto.
+
+El cálculo tiene tres pasos:
+
+1. Obtén el vector normalizado del catálogo.
+2. Promedia los vectores de las reseñas con texto de ese producto y normaliza el promedio.
+3. Combina ambos con **50 % de cada fuente** y normaliza el resultado.
+
+Ejemplo numérico aislado para comprender las operaciones:
+
+```python
+import torch
+import torch.nn.functional as F
+
+catalog_vector = F.normalize(torch.tensor([1.0, 0.0]), dim=0)
+review_vectors_for_product = torch.tensor([[0.0, 1.0], [1.0, 0.0]])
+review_average = review_vectors_for_product.mean(dim=0)
+review_summary = F.normalize(review_average, dim=0)
+product_vector = F.normalize(0.5 * catalog_vector + 0.5 * review_summary, dim=0)
+print("Product vector:", product_vector)
+```
+
+Aquí usamos dos componentes para leer los números; los vectores reales tienen
+384. Normalizar el promedio antes de combinar da el mismo peso a ambas fuentes,
+independientemente de la longitud de ese promedio. Cada reseña aporta lo mismo;
+no ponderes por estrellas ni por cantidad total de reseñas de otros productos.
+
+Puedes recorrer los IDs de producto con un `for`, seleccionar las posiciones de
+sus reseñas y calcular `mean(dim=0)`. Al terminar, reúne los vectores con
+`torch.stack`. En NumPy, las operaciones equivalentes son `mean(axis=0)`,
+normalización por longitud y `np.stack`.
+
+**Si falta una fuente**, utiliza y normaliza la disponible. Un producto sin
+catálogo puede usar sus reseñas; uno sin reseñas con texto puede usar el catálogo.
+Si no hay texto en ninguna fuente, exclúyelo de la búsqueda, pero conserva sus
+valoraciones para análisis.
+
+Obtendrás una matriz final de **`(641, 384)`** y una lista `product_ids` en el
+mismo orden. Estos archivos tienen 640 productos con texto de catálogo; el restante
+se representa mediante sus reseñas. Conserva también el conteo total de reseñas
+por producto, incluidas las que no tienen texto, para mostrarlo en los resultados.
+
+Prepara esta matriz una vez al iniciar el servidor. Las reseñas y el catálogo se
+codifican por lotes; la búsqueda compara solo los 641 vectores finales. Mantén
+modelo, matriz y registros en memoria; guardarlos en disco es opcional.
 
 ### Codificar una consulta
 
@@ -111,27 +164,27 @@ print("Vector shape:", query_vector.shape)  # torch.Size([384])
 ```
 
 La lista `[query]` contiene un solo texto. `[0]` obtiene su vector para compararlo
-con todas las filas de la matriz. La consulta se codifica en cada llamada; las
-reseñas se reutilizan. Si trabajas con NumPy, puedes convertir los tensores de CPU
+con todas las filas de la matriz de productos. La consulta se codifica en cada
+llamada; los vectores de productos se reutilizan. Si trabajas con NumPy, puedes convertir los tensores de CPU
 con `.cpu().numpy()` y continuar allí.
 
 ## 4. Implementar búsqueda y análisis
 
-Dentro de `search_reviews`, sigue este recorrido:
+Dentro de `search_products`, sigue este recorrido:
 
 1. Valida la consulta y `top_k` según el enunciado.
 2. Codifica la consulta con el modelo ya cargado.
-3. Calcula un puntaje por reseña: el producto de la matriz normalizada por el
-   vector normalizado de la consulta. Para el dataset, `(16205, 384) @ (384,)`
-   produce `(16205,)`. Evita comparar todas las reseñas entre sí.
+3. Calcula un puntaje por producto: el producto de la matriz normalizada por el
+   vector normalizado de la consulta. Para el dataset, `(641, 384) @ (384,)`
+   produce `(641,)`.
 4. Selecciona las posiciones con mayor puntaje usando `torch.topk` o
    `np.argsort` en orden descendente. Limita la cantidad al número de candidatos.
-5. Recupera las reseñas originales mediante esas posiciones e IDs y devuelve
-   ID, texto, producto, valoración y similitud como valores de Python.
+5. Recupera los productos mediante esas posiciones en `product_ids` y devuelve
+   ID, título, similitud y conteo total de reseñas como valores de Python.
 
-En el ejemplo de tres textos, una consulta sobre retrasos de entrega debería
-recuperar primero el texto del paquete. Observa las posiciones, además de los
-puntajes, para reconocer cómo se recupera el registro correcto. La puntuación
+Prueba consultas de catálogo, como `"A box with games for couples"`, y consultas
+de experiencias, como `"Problems with delivery and customer service"`. Revisa
+los títulos de los productos recuperados y sus tamaños de muestra. La puntuación
 mide similitud; no representa una probabilidad ni garantiza relevancia.
 
 Para el análisis, selecciona las valoraciones del producto y calcula conteos,

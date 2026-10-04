@@ -1,7 +1,7 @@
 # Dataset: Amazon Reviews 2023 · Subscription Boxes
 
 Trabajaremos con la categoría **Subscription Boxes** de Amazon Reviews 2023. El dataset incluye reseñas con texto, estrellas e identificadores y
-metadatos con títulos y descripciones de productos. Los archivos se relacionan
+metadatos con títulos y características (`features`) de productos. Los archivos se relacionan
 mediante `parent_asin`; algunos productos pueden no tener metadatos.
 
 La categoría tiene aproximadamente **16 200 reseñas y 641 productos asociados a
@@ -70,7 +70,11 @@ tienen por qué corresponderse.
 | Reseñas | `parent_asin` | Identificador del producto al que pertenece la reseña. |
 | Metadatos | `parent_asin` | Identificador para relacionar el producto con sus reseñas. |
 | Metadatos | `title` | Nombre del producto. |
-| Metadatos | `description` | Descripción del producto, que puede contener varios fragmentos. |
+| Metadatos | `features` | Lista de características que se une al título para representar el catálogo. |
+
+Hay 640 productos con título y 622 con características. `description` está vacío
+en estos archivos; un producto no tiene título ni características y se representa
+con sus reseñas. Consulta la [guía](./GUIA.md) para combinar ambas fuentes.
 
 Para el análisis, utiliza las valoraciones de las reseñas que cargaste. El campo
 `average_rating` de los metadatos es la valoración mostrada en la página del
@@ -81,7 +85,7 @@ documenta la regla y conserva la correspondencia entre textos, vectores y
 metadatos. Asigna a cada reseña un identificador estable basado en su número de
 línea original: `parent_asin` identifica un producto, no una reseña individual.
 
-Las respuestas de las herramientas deben identificar las reseñas recuperadas y
+La búsqueda debe identificar los productos recuperados y
 distinguir opiniones de usuarios de información del catálogo. Indica cuántas
 reseñas respaldan cada estadística.
 
