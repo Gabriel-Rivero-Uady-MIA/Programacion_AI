@@ -79,6 +79,7 @@ En este ejercicio observamos 2 conceptos trabajando:
 uv run python main.py python
 uv run --locked python client.py python
 ```
+
 ```python
 logger.info(
     "Search completed: %d matches from %d total courses",
@@ -86,6 +87,7 @@ logger.info(
     len(courses),
 )
 ```
+
 
 ### Resultado
 
@@ -97,8 +99,8 @@ La llamada a MCP devuelve los mismos cursos y termino correctamente pero no most
 
 En la llamada MCP el nuevo mensaje `INFO` no forma parte del resultado que se le envía al cliente, este pertenece al sistema de logging del servidor y no a al que devuelve la herramienta.
 
-## Ejercicio 5 · Punto de entrada
 
+## Ejercicio 5 · Reproducción y llamada MCP
 
 
 ### Comandos
@@ -113,6 +115,7 @@ uv run --locked python client.py python
 uv run --locked python client.py astronomy
 uv run --locked python client.py " "
 ```
+
 
 ### Resultado
 
