@@ -134,36 +134,59 @@ Sin embargo, la cadena de espacios vacios `"  "`, si produjo un error con `"is_e
 No tener coincidencias es un resultado valido, simplemente se regresa una lista vacía con `"is_error": false`. Por otro lado, una búsqueda con argumento vacío no es válido y nos devuelve el `"is_error": true`.
 
 
-## Ejercicio 6 · Punto de entrada
-
+## Ejercicio 6 · Agrega una prueba de un catálogo cuyo curso tenga horas negativas.
 
 
 ### Comandos
 
+Se agrego este codigo en el archivo `test_catalog.py`
 
+```Python
+def test_negative_hours(tmp_path: Path) -> None:
+    path = tmp_path / "courses_negative.json"
+    path.write_text(
+        json.dumps([{"code": "X2", "title": "Python avanzado", "hours": -5}])
+    )
+    with pytest.raises(ValueError):
+        search_courses("python", path)
+```
+Se ejecutaron los siguientes comandos
+
+```bash
+uv run --locked python -m pytest
+```
 
 ### Resultado
 
+Todas las pruebas pasaron
 
+![Salida de la terminal](Evidencias/Calidad_Ejercicio1.png)
 
 ### Explicacion
 
-
+El modelo Course define horas como mayor o igual a 0, Pydantic rechazo los valores mejores 0 iguales a cero y la prueba confirma que se comportó de manera adecuada y nos devuelve que todas las pruebas pasaron con éxito. 
 
 ## Ejercicio 7 · Punto de entrada
 
 
-
 ### Comandos
 
 
+[Se creo un archivo nuevo en test/test_cli.py](test/test_cli.py)
+
+Se corrieron los siguientes comandos:
+```bash
+uv run --locked python -m pytest
+```
 
 ### Resultado
 
+![Salida de la terminal](Evidencias/Calidad_Ejercicio2.png)
 
 
 ### Explicacion
 
+La prueba confirma que la instancia termina con código 1 y que stdout queda vacío. con tmp_path se generó una ruta temporal para no depender de los archivos del proyecto. 
 
 
 ## Ejercicio 8 · Punto de entrada
@@ -172,27 +195,59 @@ No tener coincidencias es un resultado valido, simplemente se regresa una lista 
 
 ### Comandos
 
+Se agrega en `main.py`:
 
+```Python
+import argparse
+import json
+import logging
+from pathlib import Path
+import os  ## <-- Agregado sin utilizar
+```
+Luego se ejecuta:
+
+```bash
+uv run --locked ruff check .
+```
 
 ### Resultado
 
-
+![Salida de la terminal](Evidencias/Calidad_Ejercicio3.png)
 
 ### Explicacion
 
+Ruff detecto 2 problemas `F401` porque estamos importando algo que no estamos usando y `I001` porque el import está en desorden. Después ejecutamos `ruff check . --fix` que corrigió ambos errores y verificamos, por último, con `uv run --locked ruff check .` y ya obtenemos "All checks passed!".
 
 
 ## Ejercicio 9 · Punto de entrada
 
 
-
 ### Comandos
 
+Se clona el proyecto a otra carpeta limpia: 
 
+```powershell
+cd C:\Users\Gabri\Documents\GitHub
+git clone https://github.com/Gabriel-Rivero-Uady-MIA/Programacion_AI.git Programacion_AI_Quality_Check
+cd C:\Users\Gabri\Documents\GitHub\Programacion_AI_Quality_Check\unidad-01-python-moderno\sesion-04-reproducibilidad\Gabriel\course-catalog
+```
+Se ejecutan los siguientes comandos para verificar y reconstruir el proyecto:
+
+```bash
+uv sync --locked
+uv run --locked ruff check .
+uv run --locked ruff format --check .
+uv run --locked mypy --strict main.py server.py client.py catalog
+uv run --locked python -m pytest
+```
 
 ### Resultado
 
+![Reconstruccion con uv sync --locked](Evidencias/Calidad_Ejercicio4.png)
+
+![Reconstruccion con uv sync --locked](Evidencias/Calidad_Ejercicio4.1.png)
 
 
 ### Explicacion
 
+Desde la copia limpia del proyecto en `Programacion_AI_Quality_Check` se ejecutó `uv sync --locked` que creo un nuevo `.venv` con todas las dependencias fijas del proyecto. Se ejecutaron entonces las verificaciones y ruff detecto 2 archivos que requerian correccion, se ejecutó `uv run --locked ruff .` y se verifico nuevamente, ruff confirmo 11 archivos correctamente formateados, mypy reporto 0 problemas y pytest completo las 8 pruebas correctamente. 

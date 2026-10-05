@@ -30,6 +30,7 @@ def test_invalid_course(tmp_path: Path) -> None:
     with pytest.raises(ValueError):
         search_courses("python", path)
 
+
 def test_negative_hours(tmp_path: Path) -> None:
     path = tmp_path / "courses_negative.json"
     path.write_text(
