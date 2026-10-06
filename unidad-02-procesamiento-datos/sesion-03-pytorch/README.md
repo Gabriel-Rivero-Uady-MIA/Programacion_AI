@@ -18,7 +18,7 @@ Envía los entregables mediante el [formulario de entrega](https://docs.google.c
 |---|---|---|
 | 1 | Arreglos NumPy, tensores y memoria compartida | Notebook, sección 1 |
 | 2 | Muestras, `TensorDataset` y `DataLoader` | Notebook, sección 2 |
-| 3 | CIFAR-10 y transformaciones de imágenes | Notebook, sección 3 |
+| 3 | CIFAR-10, transformaciones y lectura de imágenes bajo demanda | Notebook, sección 3 |
 | 4 | Ejes de un lote y normalización | Notebook, sección 4 |
 | 5 | Exportar una selección para visualizarla | Notebook, sección 5 y `main.py` |
 | 6 | Embeddings con SentenceTransformer y búsqueda con PyTorch | Notebook, sección 6 |

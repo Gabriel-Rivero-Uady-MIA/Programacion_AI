@@ -4,6 +4,7 @@
 |---|---|
 | Tensores, operaciones y dispositivos | [PyTorch: Tensors](https://docs.pytorch.org/tutorials/beginner/basics/tensorqs_tutorial.html) |
 | Memoria compartida con NumPy | [torch.from_numpy](https://docs.pytorch.org/docs/stable/generated/torch.from_numpy.html) |
+| Lectura de imágenes bajo demanda | [Dataset personalizado](https://docs.pytorch.org/tutorials/beginner/data_loading_tutorial.html) |
 | Dataset y DataLoader | [Datasets & DataLoaders](https://docs.pytorch.org/tutorials/beginner/basics/data_tutorial.html) |
 | TensorDataset, Subset y argumentos de carga | [torch.utils.data](https://docs.pytorch.org/docs/stable/data.html) |
 | Semillas y límites de reproducibilidad | [Reproducibility](https://docs.pytorch.org/docs/stable/notes/randomness.html) |
