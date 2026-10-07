@@ -19,7 +19,9 @@ if __name__ == "__main__":
 ```
 
 Usa `@mcp.tool()` sobre las funciones `search_products`, `analyze_product` y
-`compare_products`. Puedes escribir su implementación directamente en esas funciones.
+`compare_products`. Estas funciones utilizan los datos, la configuración y los
+embeddings preparados por los módulos de `support/` descritos en la
+[guía](./GUIA.md#estructura-del-proyecto).
 Devuelve listas, diccionarios, cadenas y números de Python. Convierte resultados
 NumPy o PyTorch con `.tolist()`, `float()` o `int()` cuando corresponda.
 

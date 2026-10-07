@@ -17,16 +17,52 @@ Copia la [notebook](./preparacion_datos.ipynb), [datasets](./datasets/) y
 con el intérprete de `.venv` y ejecuta la lectura y exploración. La sección de
 regeneración es opcional.
 
+### Estructura del proyecto
+
+Organiza la aplicación con esta estructura; puedes elegir otro nombre para la
+carpeta del proyecto:
+
+```text
+amazon-products/
+├── README.md
+├── pyproject.toml
+├── uv.lock
+├── .python-version
+├── config.json
+├── server.py
+├── client.py
+├── main.py
+├── support/
+│   ├── __init__.py
+│   ├── data.py
+│   ├── settings.py
+│   └── encoder.py
+└── datasets/
+    ├── products.jsonl.gz
+    └── reviews.jsonl.gz
+```
+
+`server.py` contiene el servidor y las tres herramientas MCP. `client.py` realiza
+las llamadas de demostración y `main.py` ejecuta ese cliente; sus snippets están
+en [MCP_HTTP.md](./MCP_HTTP.md). Implementa en `support/`:
+
+- `data.py`: lectura de los archivos y preparación de textos e IDs.
+- `settings.py`: carga y validación de la configuración.
+- `encoder.py`: carga del modelo, codificación y construcción de los vectores de producto.
+
+La notebook es una referencia para explorar y adaptar la preparación de datos.
+El servidor debe importar y utilizar estos módulos, sin depender de ejecutar la
+notebook ni de sus variables.
+
+Al preparar el archivo de entrega, omite `.venv`, cachés y pesos del modelo.
+
 ## 2. Preparar los datos y el modelo
 
-Adapta las funciones de lectura de la notebook y conserva sus IDs de reseña.
-Carga los valores de `config.json`: modelo, tamaño del lote y dispositivo.
+Adapta las funciones de lectura de la notebook en `support/data.py` y conserva
+sus IDs de reseña. En `support/settings.py`, carga los valores de `config.json`:
+modelo, tamaño del lote y dispositivo.
 Comprueba que el nombre no esté vacío y que el tamaño de lote sea un entero positivo.
 Puedes usar un modelo Pydantic para validar esta configuración.
-
-Como organización posible, `support/data.py` puede reunir lectura,
-`support/settings.py` configuración y `support/encoder.py` codificación. También
-puedes concentrar el código en `server.py`.
 
 ## 3. Generar los embeddings para la búsqueda
 
@@ -168,16 +204,18 @@ separadas; el cliente incluye los casos de demostración.
 
 ## 6. Comprobar y entregar
 
-Si toda tu implementación está en `server.py`:
+Comprueba todos los módulos de la aplicación, incluidos los de `support/`:
 
 ```bash
-uv run --locked mypy --strict server.py client.py main.py
+uv run --locked mypy --strict server.py client.py main.py support
 ```
 
 Añade al comando cualquier otro archivo o módulo Python de la aplicación que
-hayas creado. Conserva `uv.lock` y verifica `uv sync --locked` desde una copia
-sin `.venv`. Documenta tus comandos y entrega únicamente los archivos necesarios
-para ejecutar el trabajo, junto con la evidencia y explicación de resultados.
+hayas creado; el análisis debe finalizar sin errores. Conserva `uv.lock` y verifica
+`uv sync --locked` desde una copia sin `.venv`. Comprueba que el servidor prepara
+los datos y embeddings al iniciar, sin ejecutar antes la notebook. Documenta tus
+comandos y entrega los archivos de la aplicación y la explicación de resultados
+indicados en el README.
 
 ## Referencias para embeddings
 
