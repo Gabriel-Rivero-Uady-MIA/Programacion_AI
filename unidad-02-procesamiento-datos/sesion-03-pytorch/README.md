@@ -9,7 +9,7 @@ convertiremos textos en embeddings y haremos una búsqueda por similitud.
 
 ## Entrega de prácticas
 
-La fecha límite para entregar las prácticas de la Unidad 2 es el **13 de octubre de 2026**.
+La fecha límite para entregar las prácticas de la Unidad 2 es el **19 de octubre de 2026**.
 Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLScOPQOB1sgjXsZbrealNcJ_U8Aa-bqtds5SozcSsRNSek7FxA/viewform?usp=publish-editor).
 
 ## Contenido

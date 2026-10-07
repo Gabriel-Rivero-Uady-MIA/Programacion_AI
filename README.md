@@ -24,7 +24,7 @@ servidor MCP por HTTP local para buscar y analizar una selección de Electronics
 con embeddings y operaciones de PyTorch o NumPy. Incluye los datos, una notebook
 de exploración y guías de desarrollo y conexión.
 
-**Fecha límite: 19 de octubre de 2026.** Consulta sus entregables y evaluación en
+**Fecha límite: 26 de octubre de 2026.** Consulta sus entregables y evaluación en
 el README del proyecto. La unidad 3 puede incorporarse como ampliación opcional.
 
 ## Ejercicios

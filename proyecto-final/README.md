@@ -1,6 +1,6 @@
 # Proyecto final: búsqueda y análisis de productos de Amazon con MCP
 
-**Fecha límite: 19 de octubre de 2026.**
+**Fecha límite: 26 de octubre de 2026.**
 
 Construye un servidor MCP por HTTP local para buscar y analizar productos de
 **Amazon Reviews 2023 · Electronics**, utilizando embeddings y operaciones de
@@ -64,7 +64,7 @@ de tu aplicación. **Ruff es opcional.**
 
 Sube el proyecto en un **archivo comprimido (.zip)** mediante el
 [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLSew4UpE94kmWvK5M54-ubF1aeTqbk5SMOQ1IfDjdBiingDWFw/viewform?usp=publish-editor),
-a más tardar el **19 de octubre de 2026**.
+a más tardar el **26 de octubre de 2026**.
 
 - Carpeta del proyecto con código, `config.json`, `pyproject.toml`, `uv.lock`,
   `.python-version` y `datasets/`. Omite `.venv`, cachés y pesos del modelo.

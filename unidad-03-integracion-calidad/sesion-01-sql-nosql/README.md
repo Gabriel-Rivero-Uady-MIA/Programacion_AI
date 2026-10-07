@@ -6,7 +6,7 @@ y context managers; no en administrar bases de datos.
 
 ## Entrega de prácticas
 
-La fecha límite para entregar las prácticas de la Unidad 3 es el **16 de octubre de 2026**.
+La fecha límite para entregar las prácticas de la Unidad 3 es el **19 de octubre de 2026**.
 Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLSd0_iF2IEHUsLu2WXZuq-GwOSBUTfPyKNV4ht_mbH070wxljg/viewform?usp=publish-editor).
 
 ## Material
