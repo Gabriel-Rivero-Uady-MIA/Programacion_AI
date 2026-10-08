@@ -23,8 +23,8 @@ Envía los entregables mediante el [formulario de entrega](https://docs.google.c
 
 La [guía](./GUIA.md) construye el ejemplo por etapas. El
 [proyecto de referencia](./project/README.md) contiene la implementación completa.
-La sesión reúne **9 ejercicios**: cinco de la aplicación y cuatro de calidad
-con pytest, Ruff, mypy y Makefile. [PRACTICA.md](./PRACTICA.md) reúne los
+La sesión reúne **7 ejercicios**: cinco de la aplicación y dos de calidad
+con Ruff, mypy y Makefile. [PRACTICA.md](./PRACTICA.md) reúne los
 entregables y enlaza el bloque de [CALIDAD.md](./CALIDAD.md).
 
 ## Ejecutar la referencia

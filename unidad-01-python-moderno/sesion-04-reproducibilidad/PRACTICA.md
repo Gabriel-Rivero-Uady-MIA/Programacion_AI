@@ -1,7 +1,7 @@
 # Práctica: un catálogo reproducible con MCP
 
-Resuelve **9 ejercicios** sobre el proyecto construido con [GUIA.md](./GUIA.md):
-los cinco siguientes y los cuatro de [CALIDAD.md](./CALIDAD.md).
+Resuelve **7 ejercicios** sobre el proyecto construido con [GUIA.md](./GUIA.md):
+los cinco siguientes y los dos de [CALIDAD.md](./CALIDAD.md).
 
 ## Ejercicio 1 · Punto de entrada
 
@@ -38,7 +38,7 @@ distingue respuesta vacía de error. Explica qué aportan `pyproject.toml`,
 
 ## Entregables
 
-- El proyecto con código, datos pequeños, pruebas, `pyproject.toml`, `uv.lock`,
+- El proyecto con código, datos pequeños, `pyproject.toml`, `uv.lock`,
   `.python-version` y `Makefile`.
 - Un README con comandos, resultados de las llamadas y explicaciones de los
   ejercicios, incluida la evidencia de las comprobaciones de calidad.

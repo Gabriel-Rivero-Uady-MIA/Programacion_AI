@@ -94,7 +94,6 @@ reutilizar las funciones.
 ```bash
 uv run --locked python main.py
 uv run --locked python main.py --limit 10 --batch-size 4 --output-dir outputs/ten
-uv run --locked python -m pytest
 uv run --locked ruff check .
 uv run --locked ruff format --check .
 ```
@@ -124,3 +123,6 @@ por Git. Los gráficos comparativos y las cuadrículas de imágenes se desarroll
 en la sesión 4.
 
 [Fuentes oficiales](./FUENTES.md) · [Volver a la unidad](../README.md)
+
+Las pruebas existentes se pueden ejecutar con `uv run --locked python -m pytest`
+como apoyo opcional; no se pide crear pruebas para la práctica.

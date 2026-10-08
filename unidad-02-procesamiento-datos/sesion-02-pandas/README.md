@@ -42,7 +42,6 @@ clase. Para generar los archivos de salida:
 
 ```bash
 uv run --locked python main.py
-uv run --locked python -m pytest
 uv run --locked ruff check .
 ```
 
@@ -56,3 +55,6 @@ La tabla de [fuentes](./FUENTES.md) reúne la documentación oficial usada en es
 sesión.
 
 [Volver al contenido de la unidad](../README.md)
+
+Las pruebas existentes se pueden ejecutar con `uv run --locked python -m pytest`
+como apoyo opcional; no se pide crear pruebas para la práctica.

@@ -24,16 +24,17 @@ rechaza datos o umbrales no finitos con `ValueError`.
 - Con el archivo original y umbral `27`, comprueba
   `[[27, 29, 25], [28, 30, 26], [29, 31, 27]]`.
 - Con umbral `100`, comprueba la forma `(0, 3)` y explica por qué no se calcula su media.
-- Añade pruebas del umbral exacto, ninguna coincidencia, valores no finitos y
-  una selección que se pueda modificar sin cambiar el original.
+- Comprueba en la notebook el umbral exacto, ninguna coincidencia, valores no
+  finitos y una selección que se pueda modificar sin cambiar el original. Usa
+  `assert` para los resultados y `try`/`except` para los errores esperados.
 - Compara las medias de la selección y del conjunto completo. Explica qué filas
   entraron en cada cálculo.
 
 ## Entregables
 
 - Una copia de cada notebook con los ejercicios resueltos, resultados y explicaciones.
-- El proyecto de reporte con el módulo nuevo y sus pruebas.
+- El proyecto de reporte con el módulo nuevo.
 
 Reinicia el kernel y ejecuta ambas notebooks. Comprueba que el proyecto se
-reconstruya con `uv sync --locked` y que sus pruebas pasen. Entrega el código y
+reconstruya con `uv sync --locked`. Entrega el código y
 los archivos de configuración, sin `.venv` ni cachés.

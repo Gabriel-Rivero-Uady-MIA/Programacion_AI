@@ -11,8 +11,9 @@ Al construirlo desde cero, agrega las herramientas:
 uv add --dev pytest ruff mypy
 ```
 
-Copia la configuración de herramientas del `pyproject.toml` de referencia y
-revisa [tests](./project/tests). Las pruebas de búsqueda comprueban normalización,
+Copia la configuración de herramientas del `pyproject.toml` de referencia.
+Los [tests](./project/tests) existentes sirven como apoyo; no debes crear pruebas
+con pytest para esta práctica. Las pruebas de búsqueda comprueban normalización,
 consultas vacías, ausencia de coincidencias y errores de archivo. La prueba MCP
 arranca un proceso real, descubre la herramienta y verifica que el servidor
 sigue respondiendo después de una consulta inválida.
@@ -26,7 +27,7 @@ uv run --locked python -m pytest
 
 Ruff revisa estilo y problemas frecuentes. `format --check` no modifica archivos.
 Mypy analiza los tipos sin ejecutar las consultas; `--strict` activa controles
-adicionales. Pytest ejecuta los casos y comprueba sus resultados.
+adicionales. Pytest ejecuta las pruebas existentes y comprueba sus resultados.
 
 ## Makefile
 
@@ -46,11 +47,9 @@ usar esos comandos desde PowerShell sin instalar Make.
 
 ## Ejercicios de calidad
 
-1. Agrega una prueba de un catálogo cuyo curso tenga horas negativas.
-2. Agrega una prueba de consola que compruebe código 1 y stdout vacío ante un
-   archivo inexistente. Usa `subprocess.run` y un directorio temporal de pytest.
-3. Introduce un import sin usar, observa la falla de Ruff y corrígelo.
-4. Ejecuta todas las comprobaciones desde una copia limpia.
+1. Introduce un import sin usar, observa la falla de Ruff y corrígelo.
+2. Ejecuta las comprobaciones de Ruff, mypy y las pruebas existentes con pytest
+   desde una copia limpia.
 
-Entrega las pruebas y la configuración junto al proyecto.
+Entrega la configuración y los resultados junto al proyecto.
 Consulta las [fuentes oficiales](./FUENTES.md) para profundizar.
