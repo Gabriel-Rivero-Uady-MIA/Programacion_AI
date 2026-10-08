@@ -39,7 +39,7 @@ en Google Colab también se encuentran en el README de la sesión correspondient
 | 1 | 1. Curso acelerado y Zen de Python | 12 | [PRACTICA.md](./unidad-01-python-moderno/sesion-01-curso-acelerado-python/PRACTICA.md) |
 | 1 | 2. Tipado y Pydantic | 8 | [PRACTICA.md](./unidad-01-python-moderno/sesion-02-tipado-pydantic/PRACTICA.md) |
 | 1 | 3. Iteración, recursos y concurrencia | 4 | [PRACTICA.md](./unidad-01-python-moderno/sesion-03-iteracion-recursos-concurrencia/PRACTICA.md) |
-| 1 | 4. Organización, reproducibilidad y MCP local | 9 | [PRACTICA.md](./unidad-01-python-moderno/sesion-04-reproducibilidad/PRACTICA.md) |
+| 1 | 4. Organización, reproducibilidad y MCP local | 7 | [PRACTICA.md](./unidad-01-python-moderno/sesion-04-reproducibilidad/PRACTICA.md) |
 | 2 | 1. NumPy y vectorización | 11 | [PRACTICA.md](./unidad-02-procesamiento-datos/sesion-01-numpy/PRACTICA.md) |
 | 2 | 2. Tablas con pandas | 5 | [PRACTICA.md](./unidad-02-procesamiento-datos/sesion-02-pandas/PRACTICA.md) |
 | 2 | 3. Tensores y datasets con PyTorch | 5 | [PRACTICA.md](./unidad-02-procesamiento-datos/sesion-03-pytorch/PRACTICA.md) |
