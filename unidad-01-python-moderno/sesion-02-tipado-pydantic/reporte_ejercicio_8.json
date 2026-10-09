@@ -1,0 +1,22 @@
+{
+  "config": {
+    "batch_name": "Class demo",
+    "threshold": 0.9,
+    "max_records": 10
+  },
+  "accepted": [],
+  "issues": [
+    {
+      "position": 0,
+      "field": "text",
+      "message": "String should have at least 1 character",
+      "error_type": "string_too_short"
+    },
+    {
+      "position": 0,
+      "field": "label",
+      "message": "Input should be 'positive', 'neutral' or 'negative'",
+      "error_type": "literal_error"
+    }
+  ]
+}
