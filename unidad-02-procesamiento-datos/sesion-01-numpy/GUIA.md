@@ -103,13 +103,14 @@ separación estudiada con logging.
 Desde el proyecto de reporte:
 
 ```bash
-uv run --locked python -m pytest
 uv run --locked ruff check .
 uv run --locked ruff format --check .
 ```
 
-También puedes usar `make check` si tienes Make instalado. Estos comandos retoman
-las herramientas de calidad de la unidad 1. A continuación resuelve la
+Las pruebas existentes se pueden ejecutar con `uv run --locked python -m pytest`
+como apoyo opcional; no se pide crear pruebas para la práctica. También puedes
+usar `make check` si tienes Make instalado. Estos comandos retoman las herramientas
+de calidad de la unidad 1. A continuación resuelve la
 [práctica](./PRACTICA.md).
 
 Para comprobar cada notebook desde la carpeta de su proyecto:

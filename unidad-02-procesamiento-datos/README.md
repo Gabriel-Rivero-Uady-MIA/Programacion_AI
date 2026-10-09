@@ -7,7 +7,9 @@ permitirán repetir el procesamiento desde la terminal.
 
 ## Entrega de prácticas
 
-La fecha límite para entregar las prácticas de la Unidad 2 es el **13 de octubre de 2026**.
+Consulta la [lista de cotejo](./LISTA_COTEJO.md) para revisar los entregables y sus resultados esperados.
+
+La fecha límite para entregar las prácticas de la Unidad 2 es el **19 de octubre de 2026**.
 Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLScOPQOB1sgjXsZbrealNcJ_U8Aa-bqtds5SozcSsRNSek7FxA/viewform?usp=publish-editor).
 
 ## Contenido
@@ -16,7 +18,7 @@ Envía los entregables mediante el [formulario de entrega](https://docs.google.c
 |---|---|---|
 | 1 | [NumPy y vectorización](./sesion-01-numpy/README.md) | Formas, tipos, selección, vistas, operaciones vectorizadas y broadcasting con mediciones. |
 | 2 | [pandas y paso a NumPy](./sesion-02-pandas/README.md) | Cargar, limpiar, agrupar y unir datos de Titanic; extraer una matriz numérica. |
-| 3 | [PyTorch y datasets](./sesion-03-pytorch/README.md) | Tensores, `Dataset`, `DataLoader` y exploración de CIFAR-10 por lotes. |
+| 3 | [PyTorch y datasets](./sesion-03-pytorch/README.md) | Tensores, `Dataset`, `DataLoader`, CIFAR-10 por lotes y embeddings de texto. |
 | 4 | [Visualización](./sesion-04-visualizacion/README.md) | Histogramas, porcentajes por grupo y cuadrículas de imágenes con Matplotlib. |
 
 Las notebooks se numeran de forma continua dentro de la unidad: `u2_n1`,

@@ -1,7 +1,12 @@
 # Práctica: un catálogo reproducible con MCP
 
-Resuelve **9 ejercicios** sobre el proyecto construido con [GUIA.md](./GUIA.md):
-los cinco siguientes y los cuatro de [CALIDAD.md](./CALIDAD.md).
+Resuelve **7 ejercicios**: los ejercicios 1–5 de este documento y los ejercicios
+6–7 de [CALIDAD.md](./CALIDAD.md#ejercicios-de-calidad).
+
+[GUIA.md](./GUIA.md) explica cómo construir el proyecto en ocho secciones;
+esas secciones no son ejercicios adicionales. Crear un repositorio Git o un
+commit no es requisito de entrega: para comprobar la reproducción basta una
+copia del proyecto sin `.venv`.
 
 ## Ejercicio 1 · Punto de entrada
 
@@ -38,10 +43,16 @@ distingue respuesta vacía de error. Explica qué aportan `pyproject.toml`,
 
 ## Entregables
 
-- El proyecto con código, datos pequeños, pruebas, `pyproject.toml`, `uv.lock`,
+- El proyecto con código, datos pequeños, `pyproject.toml`, `uv.lock`,
   `.python-version` y `Makefile`.
 - Un README con comandos, resultados de las llamadas y explicaciones de los
-  ejercicios, incluida la evidencia de las comprobaciones de calidad.
+  ejercicios, incluida la evidencia de las comprobaciones de calidad. Puedes
+  pegar la salida de terminal en bloques de código o incluir capturas donde se
+  vean los comandos y sus resultados; cualquiera de las dos opciones es válida.
+
+Para calidad, muestra el aviso de Ruff por el import sin usar y su corrección,
+y el resultado final de Ruff, mypy y pytest sobre las pruebas existentes. No se
+pide crear pruebas nuevas.
 
 Comprueba la ejecución desde una copia limpia. Entrega el proyecto sin `.venv`,
 cachés ni logs.

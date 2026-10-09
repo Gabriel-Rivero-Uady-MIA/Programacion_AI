@@ -11,15 +11,16 @@ con `dropna=False`.
 
 Llama la función desde `main.py` y guarda `outputs/missing_age_by_class.csv`.
 Comprueba que los conteos sumen 891 y las proporciones estén entre cero y uno.
-Añade una prueba con datos pequeños construidos por ti. Explica en dos o tres
+Comprueba también la función en la notebook con datos pequeños construidos por ti
+y `assert`. Explica en dos o tres
 frases qué aporta la proporción por clase frente al total de 177 edades ausentes,
 sin interpretar la asociación como una causa.
 
 ## Entregables
 
 - Una copia de la notebook con los ejercicios 1–4 resueltos y sus explicaciones.
-- El proyecto con la función, su llamada y la prueba del ejercicio 5.
+- El proyecto con la función, su llamada del ejercicio 5.
 - `missing_age_by_class.csv` y la explicación solicitada, que puede ir en la notebook.
 
-Ejecuta toda la notebook desde un kernel limpio y las comprobaciones del README.
+Ejecuta toda la notebook desde un kernel limpio y ejecuta el proyecto según el README.
 Entrega el proyecto sin `.venv` ni cachés; adjunta el CSV como evidencia.

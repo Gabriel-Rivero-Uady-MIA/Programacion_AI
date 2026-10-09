@@ -4,9 +4,13 @@ Construiremos un catálogo de cursos que primero consultaremos como una función
 Python y después como una herramienta MCP. El ejemplo permite trabajar con
 módulos, dependencias, logging y reproducción del entorno.
 
+## Presentación
+
+[Organización y reproducibilidad con uv y un servidor MCP local (PDF)](https://drive.google.com/file/d/1L7z6CxmTSq6CT-fPHlxq593WCAa2HRcI/view?usp=drivesdk).
+
 ## Entrega de prácticas
 
-La fecha límite para entregar las prácticas de la Unidad 1 es el **7 de octubre de 2026**.
+La fecha límite para entregar las prácticas de la Unidad 1 es el **12 de octubre de 2026**.
 Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLSdTJ2vU04VfIpw1Tst_T_0g0tlbE-n6ZI81nrG0RQJMReAtaQ/viewform?usp=publish-editor).
 
 ## Recorrido
@@ -19,8 +23,8 @@ Envía los entregables mediante el [formulario de entrega](https://docs.google.c
 
 La [guía](./GUIA.md) construye el ejemplo por etapas. El
 [proyecto de referencia](./project/README.md) contiene la implementación completa.
-La sesión reúne **9 ejercicios**: cinco de la aplicación y cuatro de calidad
-con pytest, Ruff, mypy y Makefile. [PRACTICA.md](./PRACTICA.md) reúne los
+La sesión reúne **7 ejercicios**: cinco de la aplicación y dos de calidad
+con Ruff, mypy y Makefile. [PRACTICA.md](./PRACTICA.md) reúne los
 entregables y enlaza el bloque de [CALIDAD.md](./CALIDAD.md).
 
 ## Ejecutar la referencia

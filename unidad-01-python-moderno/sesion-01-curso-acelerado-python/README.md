@@ -6,7 +6,7 @@ del grupo; la prioridad es resolver y explicar los ejercicios.
 
 ## Entrega de prácticas
 
-La fecha límite para entregar las prácticas de la Unidad 1 es el **7 de octubre de 2026**.
+La fecha límite para entregar las prácticas de la Unidad 1 es el **12 de octubre de 2026**.
 Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLSdTJ2vU04VfIpw1Tst_T_0g0tlbE-n6ZI81nrG0RQJMReAtaQ/viewform?usp=publish-editor).
 
 ## Presentación de apertura
