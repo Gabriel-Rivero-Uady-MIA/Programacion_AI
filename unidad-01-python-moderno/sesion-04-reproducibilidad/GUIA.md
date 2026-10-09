@@ -3,6 +3,9 @@
 El proyecto consulta un catálogo de cursos. Construiremos primero una aplicación
 que funciona desde la terminal y luego reutilizaremos su búsqueda mediante MCP.
 
+Las ocho secciones son pasos de construcción y demostración. Los siete ejercicios
+que se entregan se indican en [PRACTICA.md](./PRACTICA.md).
+
 ## 1. Crear el proyecto
 
 Instala uv desde las [instrucciones oficiales](https://docs.astral.sh/uv/getting-started/installation/).
@@ -268,7 +271,7 @@ y `uv.lock`. Copia [.gitignore](./project/.gitignore) y excluye `.venv`, cachés
 logs y resultados. El lockfile fija dependencias, pero no guarda los datos ni
 reproduce por sí solo todo el sistema operativo.
 
-En la carpeta independiente de tu práctica, inicializa Git, revisa los archivos
+Como demostración opcional de versionado, en una carpeta independiente inicializa Git y revisa los archivos
 antes de guardarlos y crea un commit. Si trabajas dentro del repositorio del curso,
 usa ese repositorio en lugar de crear otro anidado. Desde la carpeta superior de
 un proyecto independiente ya guardado:
@@ -279,6 +282,9 @@ cd course-catalog-check
 uv sync --locked
 uv run --locked python client.py python
 ```
+
+También puedes comprobar la reproducción copiando el proyecto sin `.venv`, sin
+crear un repositorio Git ni un commit.
 
 El clon reconstruye `.venv` a partir del lockfile. Debe devolver los mismos dos
 cursos. Continúa con [PRACTICA.md](./PRACTICA.md). El bloque final de

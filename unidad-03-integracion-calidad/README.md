@@ -5,6 +5,8 @@ se organiza por sesión en proyectos con `uv`; la última sesión es opcional.
 
 ## Entrega de prácticas
 
+Consulta la [lista de cotejo](./LISTA_COTEJO.md) para revisar los entregables y sus resultados esperados.
+
 La fecha límite para entregar las prácticas de la Unidad 3 es el **19 de octubre de 2026**.
 Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLSd0_iF2IEHUsLu2WXZuq-GwOSBUTfPyKNV4ht_mbH070wxljg/viewform?usp=publish-editor).
 

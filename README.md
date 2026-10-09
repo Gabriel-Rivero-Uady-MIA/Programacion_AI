@@ -29,6 +29,10 @@ el README del proyecto. La unidad 3 puede incorporarse como ampliación opcional
 
 ## Ejercicios
 
+Listas de cotejo por unidad: [Unidad 1](./unidad-01-python-moderno/LISTA_COTEJO.md),
+[Unidad 2](./unidad-02-procesamiento-datos/LISTA_COTEJO.md) y
+[Unidad 3](./unidad-03-integracion-calidad/LISTA_COTEJO.md).
+
 Cada sesión tiene un `PRACTICA.md` con la cantidad de ejercicios, dónde
 resolverlos y los entregables. Los enunciados están en las notebooks o en
 `PRACTICA.md` y `CALIDAD.md`, según la actividad. Los enlaces para abrir notebooks

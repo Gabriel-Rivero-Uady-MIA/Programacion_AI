@@ -47,9 +47,15 @@ usar esos comandos desde PowerShell sin instalar Make.
 
 ## Ejercicios de calidad
 
-1. Introduce un import sin usar, observa la falla de Ruff y corrígelo.
-2. Ejecuta las comprobaciones de Ruff, mypy y las pruebas existentes con pytest
-   desde una copia limpia.
+### Ejercicio 6 · Corregir un aviso de Ruff
 
-Entrega la configuración y los resultados junto al proyecto.
+Introduce un import sin usar, observa la falla de Ruff y corrígelo.
+
+### Ejercicio 7 · Comprobar desde una copia limpia
+
+Ejecuta las comprobaciones de Ruff, mypy y las pruebas existentes con pytest
+desde una copia limpia.
+
+Entrega la configuración y los resultados junto al proyecto. Puedes usar salida
+de terminal o capturas, según [PRACTICA.md](./PRACTICA.md#entregables).
 Consulta las [fuentes oficiales](./FUENTES.md) para profundizar.

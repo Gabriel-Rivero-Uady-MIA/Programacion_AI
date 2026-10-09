@@ -5,6 +5,8 @@ para construir software de inteligencia artificial legible y reproducible.
 
 ## Entrega de prácticas
 
+Consulta la [lista de cotejo](./LISTA_COTEJO.md) para revisar los entregables y sus resultados esperados.
+
 La fecha límite para entregar las prácticas de la Unidad 1 es el **12 de octubre de 2026**.
 Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLSdTJ2vU04VfIpw1Tst_T_0g0tlbE-n6ZI81nrG0RQJMReAtaQ/viewform?usp=publish-editor).
 
