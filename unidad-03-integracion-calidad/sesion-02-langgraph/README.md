@@ -14,9 +14,7 @@ Envía los entregables mediante el [formulario de entrega](https://docs.google.c
 - [Presentación (PDF)](https://drive.google.com/file/d/10Oltc1j8sLw8XvC9iIovqiQYm0wEzsZV/view?usp=drivesdk).
 
 - [Notebook](./u3_n3_langgraph_workflows.ipynb): ejemplos y **2 ejercicios**.
-- [workflow.py](./workflow.py): implementación del ejemplo.
-- [advanced.py](./advanced.py): demostraciones de paralelismo, reducers y `Command`.
-- [subgraphs.py](./subgraphs.py): análisis reutilizable como componente.
+- [sample_data.py](./sample_data.py): catálogo de documentos utilizado en la notebook.
 - [PRACTICA.md](./PRACTICA.md): entregables.
 - [Fuentes oficiales](./FUENTES.md).
 
@@ -31,19 +29,13 @@ uv sync --locked
 Selecciona `.venv` como intérprete y kernel. En VS Code utiliza las extensiones
 Python y Jupyter; en PyCharm utiliza su integración de notebooks.
 
-La notebook empieza con `TypedDict` y mypy; después compara el estado con Pydantic
+La notebook empieza con `TypedDict`; después compara el estado con Pydantic
 y la validación explícita de un resultado dentro de un nodo. Los ejemplos de
 paralelismo y `Command` son guiados y no añaden ejercicios.
 
 Los diagramas con `draw_mermaid_png()` necesitan conexión para su renderizado
 predeterminado. Si no está disponible, la notebook muestra el texto Mermaid;
 los workflows siguen ejecutándose localmente.
-
-Para ejecutar las dos rutas del ejemplo desde la terminal:
-
-```bash
-uv run --locked python main.py
-```
 
 ## Grafos de datos y de ejecución
 
