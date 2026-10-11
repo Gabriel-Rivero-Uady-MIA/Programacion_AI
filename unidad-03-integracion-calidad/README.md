@@ -15,7 +15,7 @@ Envía los entregables mediante el [formulario de entrega](https://docs.google.c
 | Sesión | Tema | Trabajo |
 |---|---|---|
 | 1 | [Python como cliente SQL y NoSQL](./sesion-01-sql-nosql/README.md) | SQLite, consultas parametrizadas, pandas y demostración de Neo4j. |
-| 2 | [Workflows de datos con LangGraph](./sesion-02-langgraph/README.md) | Diseño del estado, nodos, rutas y subgraphs. |
+| 2 | [Workflows de datos con LangGraph](./sesion-02-langgraph/README.md) | TypedDict, Pydantic, nodos, rutas, paralelismo, Command y subgraphs. |
 | 3 · Opcional | [Agentes con LangChain](./sesion-03-langchain/README.md) | Mensajes, tools, guardrails y conexión MCP; ejecutar el agente requiere una API key propia. |
 
 Hay **5 ejercicios**: tres en la notebook de SQLite y dos en la de LangGraph.

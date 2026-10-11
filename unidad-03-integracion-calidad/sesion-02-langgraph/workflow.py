@@ -1,50 +1,73 @@
-from typing import Literal, TypedDict
+"""Analyze a document catalog with a Pydantic graph state."""
+
+from typing import Literal
+
 from langgraph.graph import END, START, StateGraph
+from pydantic import BaseModel, ConfigDict, Field
+
 from sample_data import DOCUMENTS, Document
 
+StateUpdate = dict[str, object]
 
-class WorkflowState(TypedDict, total=False):
+
+class WorkflowState(BaseModel):
     topic: str
-    original_topic: str
-    documents: list[Document]
-    count: int
-    total_pages: int
-    message: str
+    original_topic: str = ""
+    documents: list[Document] = Field(default_factory=list)
+    count: int = 0
+    total_pages: int = 0
+    message: str = ""
 
 
-def normalize_topic(state: WorkflowState) -> WorkflowState:
-    return {"original_topic": state["topic"], "topic": state["topic"].strip().lower()}
+class AnalysisResult(BaseModel):
+    model_config = ConfigDict(strict=True)
+
+    success: bool
+    error: str = ""
+    count: int = Field(ge=0)
+    total_pages: int = Field(ge=0)
 
 
-def select_documents(state: WorkflowState) -> WorkflowState:
+def normalize_topic(state: WorkflowState) -> StateUpdate:
+    topic = state.topic.strip().lower()
+    if not topic:
+        raise ValueError("topic must not be blank")
+    return {"original_topic": state.topic, "topic": topic}
+
+
+def select_documents(state: WorkflowState) -> StateUpdate:
     selected = []
     for document in DOCUMENTS:
-        if document["topic"] == state["topic"]:
+        if document["topic"] == state.topic:
             selected.append(document)
     return {"documents": selected}
 
 
 def route_documents(state: WorkflowState) -> Literal["found", "empty"]:
-    if state["documents"]:
+    if state.documents:
         return "found"
     return "empty"
 
 
-def summarize_documents(state: WorkflowState) -> WorkflowState:
-    count = len(state["documents"])
-    total_pages = sum(document["pages"] for document in state["documents"])
+def summarize_documents(state: WorkflowState) -> StateUpdate:
+    raw_result = {
+        "success": True,
+        "count": len(state.documents),
+        "total_pages": sum(document["pages"] for document in state.documents),
+    }
+    result = AnalysisResult.model_validate(raw_result)
     return {
-        "count": count,
-        "total_pages": total_pages,
-        "message": f"Found {count} documents with {total_pages} pages.",
+        "count": result.count,
+        "total_pages": result.total_pages,
+        "message": f"Found {result.count} documents with {result.total_pages} pages.",
     }
 
 
-def report_empty(state: WorkflowState) -> WorkflowState:
+def report_empty(state: WorkflowState) -> StateUpdate:
     return {
         "count": 0,
         "total_pages": 0,
-        "message": f"No documents found for topic: {state['topic']}",
+        "message": f"No documents found for topic: {state.topic}",
     }
 
 

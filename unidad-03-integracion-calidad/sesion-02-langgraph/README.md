@@ -1,7 +1,7 @@
 # Sesión 2: Workflows de datos con LangGraph
 
-Organizaremos la selección y el análisis de documentos mediante estado compartido,
-nodos, rutas condicionales y subgraphs. Es la última sesión obligatoria: el workflow usa
+Organizaremos la selección y el análisis de documentos mediante `TypedDict`,
+estado con Pydantic, nodos, rutas, paralelismo, `Command` y subgraphs. Es la última sesión obligatoria: el workflow usa
 funciones Python y no requiere una API key.
 
 ## Entrega de prácticas
@@ -15,7 +15,8 @@ Envía los entregables mediante el [formulario de entrega](https://docs.google.c
 
 - [Notebook](./u3_n3_langgraph_workflows.ipynb): ejemplos y **2 ejercicios**.
 - [workflow.py](./workflow.py): implementación del ejemplo.
-- [subgraphs.py](./subgraphs.py): validación y análisis reutilizable.
+- [advanced.py](./advanced.py): demostraciones de paralelismo, reducers y `Command`.
+- [subgraphs.py](./subgraphs.py): análisis reutilizable como componente.
 - [PRACTICA.md](./PRACTICA.md): entregables.
 - [Fuentes oficiales](./FUENTES.md).
 
@@ -29,6 +30,14 @@ uv sync --locked
 
 Selecciona `.venv` como intérprete y kernel. En VS Code utiliza las extensiones
 Python y Jupyter; en PyCharm utiliza su integración de notebooks.
+
+La notebook empieza con `TypedDict` y mypy; después compara el estado con Pydantic
+y la validación explícita de un resultado dentro de un nodo. Los ejemplos de
+paralelismo y `Command` son guiados y no añaden ejercicios.
+
+Los diagramas con `draw_mermaid_png()` necesitan conexión para su renderizado
+predeterminado. Si no está disponible, la notebook muestra el texto Mermaid;
+los workflows siguen ejecutándose localmente.
 
 Para ejecutar las dos rutas del ejemplo desde la terminal:
 
