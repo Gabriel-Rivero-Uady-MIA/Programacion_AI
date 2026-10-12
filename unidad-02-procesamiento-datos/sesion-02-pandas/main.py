@@ -7,6 +7,7 @@ import numpy as np
 
 from titanic.analysis import (
     load_passengers,
+    missing_age_by_class,
     numerical_arrays,
     prepare_passengers,
     survival_by_group,
@@ -25,10 +26,12 @@ def main() -> None:
     prepared = prepare_passengers(passengers)
     summary = survival_by_group(prepared)
     features, labels = numerical_arrays(prepared)
+    missing_by_class = missing_age_by_class(prepared)
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     prepared.to_csv(args.output_dir / "passengers_prepared.csv", index=False)
     summary.to_csv(args.output_dir / "survival_by_group.csv", index=False)
+    missing_by_class.to_csv(args.output_dir / "missing_age_by_class.csv", index=False)
     np.save(args.output_dir / "features.npy", features)
     np.save(args.output_dir / "labels.npy", labels)
 
