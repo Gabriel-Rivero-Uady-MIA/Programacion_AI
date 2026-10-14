@@ -1,2 +1,4 @@
 .slides-build/
 *.executed.ipynb
+
+/entrega_de_tareas/
