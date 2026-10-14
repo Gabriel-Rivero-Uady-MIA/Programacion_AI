@@ -4,18 +4,15 @@ Organizaremos la selección y el análisis de documentos mediante `TypedDict`,
 estado con Pydantic, nodos, rutas, paralelismo, `Command` y subgraphs. Es la última sesión obligatoria: el workflow usa
 funciones Python y no requiere una API key.
 
-## Entrega de prácticas
-
-La fecha límite para entregar las prácticas de la Unidad 3 es el **19 de octubre de 2026**.
-Envía los entregables mediante el [formulario de entrega](https://docs.google.com/forms/d/e/1FAIpQLSd0_iF2IEHUsLu2WXZuq-GwOSBUTfPyKNV4ht_mbH070wxljg/viewform?usp=publish-editor).
+Esta sesión no tiene tareas ni entregables.
 
 ## Material
 
 - [Presentación (PDF)](https://drive.google.com/file/d/10Oltc1j8sLw8XvC9iIovqiQYm0wEzsZV/view?usp=drivesdk).
 
-- [Notebook](./u3_n3_langgraph_workflows.ipynb): ejemplos y **2 ejercicios**.
+- [Notebook](./u3_n3_langgraph_workflows.ipynb): ejemplos guiados.
 - [sample_data.py](./sample_data.py): catálogo de documentos utilizado en la notebook.
-- [PRACTICA.md](./PRACTICA.md): entregables.
+- [PRACTICA.md](./PRACTICA.md).
 - [Fuentes oficiales](./FUENTES.md).
 
 ## Preparación
@@ -30,8 +27,7 @@ Selecciona `.venv` como intérprete y kernel. En VS Code utiliza las extensiones
 Python y Jupyter; en PyCharm utiliza su integración de notebooks.
 
 La notebook empieza con `TypedDict`; después compara el estado con Pydantic
-y la validación explícita de un resultado dentro de un nodo. Los ejemplos de
-paralelismo y `Command` son guiados y no añaden ejercicios.
+y la validación explícita de un resultado dentro de un nodo.
 
 Los diagramas con `draw_mermaid_png()` necesitan conexión para su renderizado
 predeterminado. Si no está disponible, la notebook muestra el texto Mermaid;

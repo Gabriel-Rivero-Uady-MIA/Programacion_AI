@@ -49,10 +49,10 @@ en Google Colab también se encuentran en el README de la sesión correspondient
 | 2 | 3. Tensores y datasets con PyTorch | 5 | [PRACTICA.md](./unidad-02-procesamiento-datos/sesion-03-pytorch/PRACTICA.md) |
 | 2 | 4. Visualización de datos | 2 | [PRACTICA.md](./unidad-02-procesamiento-datos/sesion-04-visualizacion/PRACTICA.md) |
 | 3 | 1. Python como cliente SQL y NoSQL | 3 | [PRACTICA.md](./unidad-03-integracion-calidad/sesion-01-sql-nosql/PRACTICA.md) |
-| 3 | 2. Workflows de datos con LangGraph | 2 | [PRACTICA.md](./unidad-03-integracion-calidad/sesion-02-langgraph/PRACTICA.md) |
+| 3 | 2. Workflows de datos con LangGraph | Sin entregable | [PRACTICA.md](./unidad-03-integracion-calidad/sesion-02-langgraph/PRACTICA.md) |
 | 3 | 3. Agentes con LangChain · opcional | Sin entregable | [PRACTICA.md](./unidad-03-integracion-calidad/sesion-03-langchain/PRACTICA.md) |
 
-En las sesiones con notebooks, entrega una copia con los ejercicios resueltos,
+En las sesiones con ejercicios en notebooks, entrega una copia con los ejercicios resueltos,
 resultados y explicaciones. Cuando la práctica incluye un proyecto, entrega
 también el código y los archivos indicados en su `PRACTICA.md`.
 

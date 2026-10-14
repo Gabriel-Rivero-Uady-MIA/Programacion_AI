@@ -18,10 +18,10 @@ Envía los entregables mediante el [formulario de entrega](https://docs.google.c
 | 2 | [Workflows de datos con LangGraph](./sesion-02-langgraph/README.md) | TypedDict, Pydantic, nodos, rutas, paralelismo, Command y subgraphs. |
 | 3 · Opcional | [Agentes con LangChain](./sesion-03-langchain/README.md) | Mensajes, tools, guardrails y conexión MCP; ejecutar el agente requiere una API key propia. |
 
-Hay **5 ejercicios**: tres en la notebook de SQLite y dos en la de LangGraph.
-Cada sesión tiene su `PRACTICA.md` con los entregables. Neo4j es una demostración
-opcional; LangChain no tiene entregable. Las dos sesiones obligatorias se pueden
-completar sin una API key.
+La unidad tiene **3 ejercicios**, todos en la notebook de SQLite de la sesión 1.
+Consulta su `PRACTICA.md` para los entregables. Neo4j es una demostración opcional;
+LangGraph y LangChain no tienen tareas ni entregables. Las sesiones 1 y 2 se pueden
+seguir sin una API key.
 
 ## Presentaciones
 
