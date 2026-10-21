@@ -1,6 +1,7 @@
 import torch
 import torch.nn.functional as F
 from sentence_transformers import SentenceTransformer
+
 from support.settings import Settings
 
 
@@ -10,6 +11,7 @@ def load_model(settings: Settings) -> SentenceTransformer:
         device=settings.device,
     )
     return model
+
 
 def encode_texts(
     model: SentenceTransformer,
@@ -23,6 +25,7 @@ def encode_texts(
         normalize_embeddings=True,
     )
     return embeddings
+
 
 def summarize_reviews(
     product_ids: list[str],
@@ -49,12 +52,14 @@ def summarize_reviews(
 
     return torch.stack(summaries)
 
+
 def combine_embeddings(
     catalog_embeddings: torch.Tensor,
     review_summaries: torch.Tensor,
 ) -> torch.Tensor:
     combined = 0.5 * catalog_embeddings + 0.5 * review_summaries
     return F.normalize(combined, dim=1)
+
 
 def encode_query(
     model: SentenceTransformer,
@@ -63,5 +68,3 @@ def encode_query(
 ) -> torch.Tensor:
     query_vectors = encode_texts(model, [query], batch_size)
     return query_vectors[0]
-
-

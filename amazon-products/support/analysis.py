@@ -1,6 +1,6 @@
+from typing import TypedDict
 
 import numpy as np
-from typing import TypedDict
 
 from support.data import ReviewRecord
 
@@ -13,9 +13,11 @@ class AnalysisResult(TypedDict):
     mean: float | None
     median: float | None
 
+
 class ComparisonResult(TypedDict):
     products: list[AnalysisResult]
     mean_differences: list[float | None]
+
 
 def analyze_product(
     product_id: str,
@@ -25,17 +27,12 @@ def analyze_product(
         raise ValueError("Product ID cannot be empty")
 
     ratings = [
-        review["rating"]
-        for review in reviews
-        if review["product_id"] == product_id
+        review["rating"] for review in reviews if review["product_id"] == product_id
     ]
 
     review_count = len(ratings)
 
-    rating_counts = {
-        star: ratings.count(star)
-        for star in range(1, 6)
-    }
+    rating_counts = {star: ratings.count(star) for star in range(1, 6)}
 
     rating_proportions = {
         star: count / review_count if review_count else 0.0
@@ -58,6 +55,7 @@ def analyze_product(
         "median": median,
     }
 
+
 def compare_products(
     product_ids: list[str],
     reviews: list[ReviewRecord],
@@ -71,10 +69,7 @@ def compare_products(
     if len(product_ids) != len(set(product_ids)):
         raise ValueError("Product IDs must be distinct")
 
-    results = [
-        analyze_product(product_id, reviews)
-        for product_id in product_ids
-    ]
+    results = [analyze_product(product_id, reviews) for product_id in product_ids]
 
     reference_mean = results[0]["mean"]
 

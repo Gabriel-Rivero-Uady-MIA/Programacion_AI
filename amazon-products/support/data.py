@@ -4,6 +4,7 @@ from collections.abc import Iterator
 from pathlib import Path
 from typing import Any, TypedDict
 
+
 class ReviewRecord(TypedDict):
     review_id: str
     product_id: str
@@ -19,6 +20,7 @@ class ProductRecord(TypedDict):
     categories: list[str]
     family: str
 
+
 def ensure_data(directory: Path) -> None:
     for filename in ("reviews.jsonl.gz", "products.jsonl.gz"):
         if not (directory / filename).is_file():
@@ -26,11 +28,13 @@ def ensure_data(directory: Path) -> None:
                 f"Copy the provided datasets folder first: {filename}"
             )
 
+
 def rows(path: Path) -> Iterator[tuple[int, dict[str, Any]]]:
     with gzip.open(path, "rt", encoding="utf-8") as stream:
         for line_number, text in enumerate(stream, start=1):
             if text.strip():
                 yield line_number, json.loads(text)
+
 
 def load(directory: Path) -> tuple[list[ReviewRecord], dict[str, ProductRecord]]:
     products: dict[str, ProductRecord] = {}
@@ -41,8 +45,9 @@ def load(directory: Path) -> tuple[list[ReviewRecord], dict[str, ProductRecord]]
         if not isinstance(product_id, str) or not product_id.strip():
             raise ValueError(f"Invalid product ID at line {line_number}")
 
+        # Keep ValueError for consistent dataset validation errors.
         if not isinstance(title, str):
-            raise ValueError(f"Invalid product title at line {line_number}")
+            raise ValueError(f"Invalid product title at line {line_number}")  # noqa: TRY004
 
         if product_id in products:
             raise ValueError(f"Duplicate product ID at line {line_number}")
@@ -85,8 +90,9 @@ def load(directory: Path) -> tuple[list[ReviewRecord], dict[str, ProductRecord]]
         if not isinstance(product_id, str) or not product_id.strip():
             raise ValueError(f"Invalid product ID at review line {line_number}")
 
+        # Keep ValueError for consistent dataset validation errors.
         if isinstance(rating, bool) or not isinstance(rating, (int, float)):
-            raise ValueError(f"Invalid rating at review line {line_number}")
+            raise ValueError(f"Invalid rating at review line {line_number}")  # noqa: TRY004
 
         if rating not in (1, 2, 3, 4, 5) or not isinstance(text, str):
             raise ValueError(f"Invalid review at line {line_number}")
@@ -100,21 +106,27 @@ def load(directory: Path) -> tuple[list[ReviewRecord], dict[str, ProductRecord]]
         ):
             raise ValueError(f"Invalid original line at review line {line_number}")
 
-        records.append({
-            "review_id": f"Electronics:{source_line}",
-            "product_id": product_id,
-            "text": text,
-            "rating": float(rating),
-        })
+        records.append(
+            {
+                "review_id": f"Electronics:{source_line}",
+                "product_id": product_id,
+                "text": text,
+                "rating": float(rating),
+            }
+        )
 
     return records, products
 
+
 def catalog_text(product: ProductRecord) -> str:
-    return " ".join([
-        product["title"],
-        *product["features"],
-        *product["description"],
-    ]).strip()
+    return " ".join(
+        [
+            product["title"],
+            *product["features"],
+            *product["description"],
+        ]
+    ).strip()
+
 
 def prepare_review_texts(
     reviews: list[ReviewRecord],
@@ -132,6 +144,3 @@ def prepare_review_texts(
             review_product_ids.append(review["product_id"])
 
     return texts, review_ids, review_product_ids
-
-
-

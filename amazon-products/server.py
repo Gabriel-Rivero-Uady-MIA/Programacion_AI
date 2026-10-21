@@ -1,22 +1,20 @@
-
 from collections import Counter
 from dataclasses import dataclass
-from mcp.server import MCPServer
-from mcp.server.mcpserver.exceptions import ToolError
 from pathlib import Path
 
-from support.settings import load_settings
-from sentence_transformers import SentenceTransformer
 import torch
+from mcp.server import MCPServer
+from mcp.server.mcpserver.exceptions import ToolError
+from sentence_transformers import SentenceTransformer
 
-from support.search import (
-    search_products as search_products_impl,
-     SearchResult
-)
 from support.analysis import (
     AnalysisResult,
     ComparisonResult,
+)
+from support.analysis import (
     analyze_product as analyze_product_impl,
+)
+from support.analysis import (
     compare_products as compare_products_impl,
 )
 from support.data import (
@@ -33,7 +31,9 @@ from support.encoder import (
     load_model,
     summarize_reviews,
 )
-
+from support.search import SearchResult
+from support.search import search_products as search_products_impl
+from support.settings import load_settings
 
 
 @dataclass
@@ -57,29 +57,20 @@ def initialize_resources() -> ServerResources:
     reviews, products = load(dataset_dir)
 
     product_ids = list(products)
-    catalog_texts = [
-        catalog_text(products[product_id])
-        for product_id in product_ids
-    ]
+    catalog_texts = [catalog_text(products[product_id]) for product_id in product_ids]
 
     review_texts, _, review_product_ids = prepare_review_texts(reviews)
 
     model = load_model(settings)
 
-    catalog_embeddings = encode_texts(
-        model, catalog_texts, settings.batch_size
-    )
-    review_embeddings = encode_texts(
-        model, review_texts, settings.batch_size
-    )
+    catalog_embeddings = encode_texts(model, catalog_texts, settings.batch_size)
+    review_embeddings = encode_texts(model, review_texts, settings.batch_size)
 
     review_summaries = summarize_reviews(
         product_ids, review_product_ids, review_embeddings
     )
 
-    product_embeddings = combine_embeddings(
-        catalog_embeddings, review_summaries
-    )
+    product_embeddings = combine_embeddings(catalog_embeddings, review_summaries)
 
     counts = Counter(review["product_id"] for review in reviews)
     review_counts = dict(counts)
@@ -93,6 +84,7 @@ def initialize_resources() -> ServerResources:
         review_counts=review_counts,
         batch_size=settings.batch_size,
     )
+
 
 mcp = MCPServer("Amazon reviews")
 resources = initialize_resources()
@@ -135,6 +127,7 @@ def compare_products(product_ids: list[str]) -> ComparisonResult:
         )
     except ValueError as exc:
         raise ToolError(str(exc)) from exc
+
 
 if __name__ == "__main__":
     mcp.run(

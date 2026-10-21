@@ -1,8 +1,9 @@
+from typing import TypedDict
+
 import torch
+from sentence_transformers import SentenceTransformer
 
 from support.data import ProductRecord
-from typing import TypedDict
-from sentence_transformers import SentenceTransformer
 from support.encoder import encode_query
 
 
@@ -53,14 +54,17 @@ def build_search_results(
         product_id = product_ids[index]
         product = products[product_id]
 
-        results.append({
-            "product_id": product_id,
-            "title": product["title"],
-            "similarity": float(value),
-            "review_count": review_counts[product_id],
-        })
+        results.append(
+            {
+                "product_id": product_id,
+                "title": product["title"],
+                "similarity": float(value),
+                "review_count": review_counts[product_id],
+            }
+        )
 
     return results
+
 
 def search_products(
     query: str,
