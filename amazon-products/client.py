@@ -18,7 +18,7 @@ async def demonstrate() -> None:
         ),
         (
             "compare_products",
-            {"product_ids": ["B0BCTJMN63", "B09MMWM2Y8"]},
+            {"product_ids": ["B0B786PFYJ", "B0BNY1L4JP", "B09WWG19YS"]},
         ),
         (
             "analyze_product",
@@ -34,6 +34,10 @@ async def demonstrate() -> None:
                 "query": "Comfortable headphones with good sound",
                 "top_k": 2,
             },
+        ),
+        (
+            "compare_products",
+            {"product_ids": ["B07CQMZVZ6", "B091K4WYD1"]},
         ),
     ]
 

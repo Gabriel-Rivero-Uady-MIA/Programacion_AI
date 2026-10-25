@@ -191,14 +191,15 @@ Si alguna de las medias necesarias no está disponible, la diferencia correspond
 
 El cliente incluido en este repositorio está configurado como una demostración de las funcionalidades MCP.
 
-Al ejecutar `main.py`, se llama a `demonstrate()` de `client.py`, que descubre las herramientas y realiza seis solicitudes predefinidas:
+Al ejecutar `main.py`, se llama a `demonstrate()` de `client.py`, que descubre las herramientas y realiza siete solicitudes predefinidas:
 
 1. **Búsqueda semántica:** busca bocinas Bluetooth portátiles resistentes al agua con `top_k=3`.
 2. **Análisis de producto:** obtiene las estadísticas de un producto conocido.
-3. **Comparación:** compara las valoraciones de dos productos.
+3. **Comparación:** compara las valoraciones de los 3 productos obtenidos en la busqueda del punto 1.
 4. **Producto desconocido:** comprueba que se devuelven estadísticas vacías y valores `null` cuando corresponde.
 5. **Entrada inválida:** envía una consulta con `top_k=0`, que produce un error controlado.
 6. **Recuperación:** realiza una búsqueda válida de audífonos con `top_k=2`, después del error anterior.
+7. **Comparación:** compara las valoraciones de los 2 productos obtenidos en la busqueda del punto 6.
 
 La quinta llamada genera `is_error: true`. La sexta devuelve `is_error: false`, confirmando que el servidor continúa respondiendo correctamente dentro de la misma conexión MCP.
 
@@ -244,11 +245,21 @@ Success: no issues found in 9 source files
 
 ## Ejemplos e interpretación de resultados
 
-Los resultados siguientes corresponden a las consultas ejecutadas mediante el cliente MCP durante la demostración integral. Las similitudes se muestran redondeadas a cuatro decimales.
+Los siguientes resultados corresponden a las consultas (Queries) realizadas mediante la demostracion en el [main.py](http://main.py). especificamente la consulta #1 y la Consulta #6.
 
 ### Ejemplo 1 — Bocina Bluetooth portátil resistente al agua
 
-**Consulta:**
+**En el Main aparece la siguiente Consulta:**
+
+```json
+"search_products",
+{
+    "query": "A portable waterproof Bluetooth speaker",
+    "top_k": 3,
+},
+```
+
+**Que se traduce a:**
 
 ```text
 A portable waterproof Bluetooth speaker
@@ -256,25 +267,48 @@ A portable waterproof Bluetooth speaker
 
 **Parámetros:** `top_k=3`
 
-| Producto | Similitud | Reseñas |
-|---|---:|---:|
-| Altec Lansing Mini H2O (`B0B786PFYJ`) | 0.7942 | 11 |
-| EDUPLINK Waterproof Portable Bluetooth Speaker (`B0BNY1L4JP`) | 0.7896 | 13 |
-| Bose SoundLink Micro (`B09WWG19YS`) | 0.7580 | 27 |
+**obtenemos la siguiente salida:**
+![Salida_Ejemplo_1](./Output_Ex_1.png)
+
+**posteriormente realizamos la siguiente consulta:**
+
+```json
+"compare_products",
+{"product_ids": ["B0B786PFYJ", "B0BNY1L4JP", "B09WWG19YS"]}
+```
+
+**Con el que obtenemos mas informacion de la consulta y ambas consultas se pueden traducir en la siguiente tabla:**
+
+| Producto | Similitud | Reseñas | Media ★ | 1★ | 2★ | 3★ | 4★ | 5★ |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Altec Lansing Mini H2O | 0.7942 | 11 | 4.91 | 0 | 0 | 0 | 1 | 10 |
+| EDUPLINK Waterproof | 0.7896 | 13 | 4.62 | 1 | 0 | 0 | 1 | 11 |
+| Bose SoundLink Micro | 0.7580 | 27 | 4.44 | 3 | 0 | 1 | 1 | 22 |
 
 **Interpretación**
 
-Los tres resultados presentan una correspondencia temática clara con la consulta: se trata de bocinas Bluetooth portátiles con características de resistencia al agua.
+Los tres resultados son bocinas Bluetooth resistentes al agua.
 
-El producto Altec Lansing Mini H2O presenta la mayor similitud semántica (0.7942), seguido muy de cerca por EDUPLINK (0.7896). El título de Altec Lansing menciona certificación IP67 y capacidad de flotación, características relacionadas con lo solicitado.
+La similitud más cercana la presenta el producto B0B786PFYJ con una diferencia de .0046 respecto al segundo resultado.
+Esto es importante porque una mayor similitud no es necesariamente un indicador de que el producto tenga una mejor calidad o sea mejor o tenga una mayor resistente contra el agua.
 
-Sin embargo, una mayor similitud no significa que el producto tenga mejor calidad, mayor resistencia real o mejores valoraciones. Para verificar sus características físicas es necesario consultar las especificaciones del fabricante.
+Sin embargo, como podemos observar en la tabla, la media de calificación del primer producto es 4.91 lo que nos indica que al menos a los consumidores que han realizado reseñas les ha parecido satisfactoria. sin embargo 11 reseñas podrían considerarse muy pocas para poder decir que cubren una muestra representativa.
 
-La cantidad de reseñas corresponde únicamente a la selección proporcionada en el dataset.
+por eso a pesar de que nuestro sistema busque coincidencias que cumplen con los criterios de búsqueda y devuelven correctamente productos similares, no podemos tomar estos productos como recomendaciones de compra o considerar un ranking de calidad de productos.
 
 ### Ejemplo 2 — Audífonos cómodos con buen sonido
 
-**Consulta:**
+**En el Main aparece la siguiente Consulta:**
+
+```json
+"search_products",
+{
+    "query": "Comfortable headphones with good sound",
+    "top_k": 2,
+},
+```
+
+**Que se traduce a:**
 
 ```text
 Comfortable headphones with good sound
@@ -282,20 +316,34 @@ Comfortable headphones with good sound
 
 **Parámetros:** `top_k=2`
 
-| Producto | Similitud | Reseñas |
-|---|---:|---:|
-| Sony MDR7506 (`B07CQMZVZ6`) | 0.7294 | 30 |
-| OneOdio Over Ear (`B091K4WYD1`) | 0.7166 | 30 |
+**obtenemos la siguiente salida:**
+![Salida_Ejemplo_2](./Output_Ex_2.png)
+
+**posteriormente realizamos la siguiente consulta:**
+
+```json
+"compare_products",
+{"product_ids": ["B07CQMZVZ6", "B091K4WYD1"]}
+```
+
+**Con el que obtenemos mas informacion de la consulta y ambas consultas se pueden traducir en la siguiente tabla:**
+
+| Producto | Similitud | Reseñas | Media ★ | 1★ | 2★ | 3★ | 4★ | 5★ |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Sony MDR7506 | 0.7294 | 30 | 4.50 | 1 | 0 | 3 | 5 | 21 |
+| OneOdio Over Ear | 0.7166 | 30 | 4.10 | 3 | 1 | 3 | 6 | 17 |
 
 **Interpretación**
 
-El buscador recupera dos modelos de audífonos relacionados con la consulta. Sony MDR7506 obtiene una similitud de 0.7294 y OneOdio alcanza 0.7166.
+El buscador recupera dos productos, los Sony MDR7506 obtiene una similitud de 0.7294 y los OneOdio alcanza 0.7166.
 
-Ambos resultados tienen 30 reseñas en la selección proporcionada, lo que permite contrastar estadísticas basadas en el mismo tamaño de muestra.
+Ambos audífonos que mencionan características comodidad.
 
-La diferencia de similitud es pequeña y no demuestra que Sony tenga mejor sonido o resulte más cómodo. Los embeddings representan relaciones semánticas entre textos, no una evaluación objetiva de calidad.
+Ambos resultados tienen 30 reseñas, lo que permite bastante mejor los productos por el tamaño de la muestra.
 
-Además, una reseña negativa sobre comodidad puede ser semánticamente relevante para una consulta que menciona esa misma característica. Por ello, el ranking debe interpretarse como una medida de cercanía temática y no como una recomendación definitiva de compra.
+Como en el ejemplo anterior basándonos únicamente en la similitud no podemos definir que un producto sea mejor que otro. Sin embargo, una reseña negativa sobre comodidad puede ser semánticamente relevante para una consulta que menciona esa misma característica. Por ello, el ranking debe interpretarse como una medida de cercanía no como una recomendación definitiva de compra.
+
+A pesar de que claramente en este ejemplo al comparar muestras de similares tamaños la media de estrellas de los audífonos Sony si revelan al menos una mejor satisfacción entre los clientes que escogieron este producto.
 
 ## Alcance y limitaciones
 
